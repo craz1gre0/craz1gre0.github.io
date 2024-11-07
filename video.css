@@ -1,0 +1,28 @@
+body{
+    margin:0;
+}
+h1{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size: 80px;
+    color:rgb(31, 226, 229);
+    z-index: 1;
+}
+p{
+     position: absolute;
+     top:55%;
+     left:50%;
+     transform:translate(-50%,-50%);
+     font-size: 60px;
+     color:rgb(31, 226, 229);
+     z-index: 1;
+}
+.video-back{
+    position: fixed;
+    top:0;
+    left:0;
+    min-width: 100%;
+    min-height:100% ;
+}
