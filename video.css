@@ -32,9 +32,10 @@ p{
         font-size: 50px; /* 根據需求調整文字大小 */
     }
 }
-@media only screen and (orientation: portrait) {
-    hi, p{
-        font-size: 50px;
+@media screen and (max-width: 767px) {
+    /* 在螢幕寬度小於 767px 時使用以下 CSS 規則 */
+    body {
+        font-size: 16px;
     }
 }
 
