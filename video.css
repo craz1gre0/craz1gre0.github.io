@@ -29,7 +29,7 @@ p{
 @media screen and (max-width: 767px) {
     /* 在螢幕寬度小於 767px 時使用以下 CSS 規則 */
     body {
-        font-size: 16px;
+        font-size: 10px;
     }
 }
 
