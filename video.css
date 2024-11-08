@@ -32,6 +32,11 @@ p{
         font-size: 50px; /* 根據需求調整文字大小 */
     }
 }
+@media only screen and (orientation: portrait) {
+    hi, p{
+        font-size: 50px;
+    }
+}
 
 /* 手機縱向提示*/
 @media only screen and (orientation: portrait) {
