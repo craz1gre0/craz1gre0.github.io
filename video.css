@@ -33,12 +33,12 @@ p {
 
 @media (max-width: 768px) {
     h1 {
-        top: 30%;
+        top: 45%;
         font-size: 40px; 
     }
 
     p {
-        top: 50%;
+        top: 60%;
         font-size: 30px; 
     }
 }
