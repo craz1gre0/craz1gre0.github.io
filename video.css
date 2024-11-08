@@ -27,11 +27,4 @@ p{
     min-height:100% ;
 }
 
-@media only screen {
-    /* 在螢幕寬度小於 767px 時使用以下 CSS 規則 */
-    body {
-        font-size: 16px;
-    }
-}
-
 
