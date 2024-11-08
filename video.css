@@ -1,30 +1,44 @@
-body{
-    margin:0;
+/* 預設樣式 */
+body {
+    margin: 0;
 }
-h1{
+
+h1 {
     position: absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 80px;
-    color:rgb(31, 226, 229);
+    color: rgb(31, 226, 229);
     z-index: 1;
 }
-p{
-     position: absolute;
-     top:55%;
-     left:50%;
-     transform:translate(-50%,-50%);
-     font-size: 60px;
-     color:rgb(31, 226, 229);
-     z-index: 1;
+
+p {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    color: rgb(31, 226, 229);
+    z-index: 1;
 }
-.video-back{
+
+.video-back {
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     min-width: 100%;
-    min-height:100% ;
+    min-height: 100%;
 }
 
+@media (max-width: 768px) {
+    h1 {
+        top: 40%;
+        font-size: 40px; 
+    }
 
+    p {
+        top: 50%;
+        font-size: 30px; 
+    }
+}
