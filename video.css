@@ -26,10 +26,10 @@ p{
     min-width: 100%;
     min-height:100% ;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 800px) {
     /* 在螢幕寬度小於 767px 時使用以下 CSS 規則 */
     body {
-        font-size: 10px;
+        font-size: 16px;
     }
 }
 
