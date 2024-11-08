@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     const thevideo = document.getElementById("thevideo");
     const othervideo = document.getElementById("othervideo");
-    const mobilevideo = document.getElementById("mobilevideo")
+    const mobilevideo = document.getElementById("mobilevideo");
+    const mobilemainvideo = document.getElementById("mobilemainvideo");  // 新增 mobilemainvideo 元素
     const h1 = document.getElementById("h1");
     const p1 = document.getElementById("p1");
 
@@ -12,38 +13,45 @@ document.addEventListener("DOMContentLoaded", function() {
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
 
-    function isportrait() {
-        return isMobile() && window.matchMedia("(orientation:  portrait)").matches;
+    function isPortrait() {
+        return isMobile() && window.matchMedia("(orientation: portrait)").matches;
     }
 
-    // s
-    function playoth() {
-        
-        if (isportrait()) {
-            thevideo.style.display = "none";
+    function initMobileVideo() {
+        thevideo.style.display = "none";
+        mobilemainvideo.style.display = "block";
+        mobilemainvideo.play();
+    }
+
+    function playOtherVideo() {
+        if (isPortrait()) {
+            mobilemainvideo.style.display = "none";
             mobilevideo.style.display = "block";
             mobilevideo.muted = false;
             mobilevideo.play();
-            h1.textContent = " ";
-            p1.textContent = " ";
-        }
-        else{
+        } else {
             thevideo.style.display = "none";
             othervideo.style.display = "block";
             othervideo.muted = false;
             othervideo.play();
-            h1.textContent = " ";
-            p1.textContent = " ";
         }
-        
+        h1.textContent = " ";
+        p1.textContent = " ";
     }
 
-    // p
-    thevideo.addEventListener("click", playoth);
-    h1.addEventListener("click", playoth);
-    p1.addEventListener("click", playoth);
+    if (isMobile()) {
+        initMobileVideo();
+    } else {
+        thevideo.style.display = "block";
+        thevideo.play();
+    }
 
-    // end
+    thevideo.addEventListener("click", playOtherVideo);
+    mobilemainvideo.addEventListener("click", playOtherVideo);
+    h1.addEventListener("click", playOtherVideo);
+    p1.addEventListener("click", playOtherVideo);
+
+    //end1
     othervideo.addEventListener("ended", function() {
         othervideo.muted = true;
         othervideo.style.display = "none";
@@ -52,14 +60,14 @@ document.addEventListener("DOMContentLoaded", function() {
         p1.textContent = backp1;
         thevideo.play();
     });
+
     //end2
-    // end
     mobilevideo.addEventListener("ended", function() {
         mobilevideo.muted = true;
         mobilevideo.style.display = "none";
-        thevideo.style.display = "block";
+        mobilemainvideo.style.display = "block";
         h1.textContent = backh1;
         p1.textContent = backp1;
-        thevideo.play();
+        mobilemainvideo.play();
     });
 });
