@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // 顯示驚嚇警告
+
     alert("驚嚇警告！請按確定以繼續。");
 
     const thevideo = document.getElementById("thevideo");
