@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // 顯示驚嚇警告
+    alert("驚嚇警告！請按確定以繼續。");
+
     const thevideo = document.getElementById("thevideo");
     const othervideo = document.getElementById("othervideo");
     const mobilevideo = document.getElementById("mobilevideo");
-    const mobilemainvideo = document.getElementById("mobilemainvideo");  // 新增 mobilemainvideo 元素
+    const mobilemainvideo = document.getElementById("mobilemainvideo");
     const h1 = document.getElementById("h1");
     const p1 = document.getElementById("p1");
 
@@ -16,13 +19,14 @@ document.addEventListener("DOMContentLoaded", function() {
     function isPortrait() {
         return isMobile() && window.matchMedia("(orientation: portrait)").matches;
     }
-
+    
     function initMobileVideo() {
         thevideo.style.display = "none";
         mobilemainvideo.style.display = "block";
         mobilemainvideo.play();
     }
 
+    // p
     function playOtherVideo() {
         if (isPortrait()) {
             mobilemainvideo.style.display = "none";
@@ -39,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
         p1.textContent = " ";
     }
 
+    // m
     if (isMobile()) {
         initMobileVideo();
     } else {
@@ -46,12 +51,13 @@ document.addEventListener("DOMContentLoaded", function() {
         thevideo.play();
     }
 
+    // c
     thevideo.addEventListener("click", playOtherVideo);
     mobilemainvideo.addEventListener("click", playOtherVideo);
     h1.addEventListener("click", playOtherVideo);
     p1.addEventListener("click", playOtherVideo);
 
-    //end1
+    //end
     othervideo.addEventListener("ended", function() {
         othervideo.muted = true;
         othervideo.style.display = "none";
