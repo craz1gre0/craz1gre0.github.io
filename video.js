@@ -8,8 +8,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const backp1 = p1.textContent;
 
     // check橫
+    function isMobile() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
     function isLandscape() {
-        return window.matchMedia("(orientation: landscape)").matches;
+        return isMobile() && window.matchMedia("(orientation: landscape)").matches;
     }
 
     // 橫
