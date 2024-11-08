@@ -12,11 +12,12 @@ document.addEventListener("DOMContentLoaded", function() {
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
 
+    // 檢查橫
     function isLandscape() {
         return isMobile() && window.matchMedia("(orientation: landscape)").matches;
     }
 
-    // 橫
+    // 橫p
     function setupVideoControls() {
         function playoth() {
             thevideo.style.display = "none";
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // if橫向
+    // if橫
     if (isLandscape()) {
         setupVideoControls();
     }
