@@ -26,12 +26,6 @@ p{
     min-width: 100%;
     min-height:100% ;
 }
-/* 手機橫*/
-@media only screen and (orientation: landscape) {
-    h1, p {
-        font-size: 50px; /* 根據需求調整文字大小 */
-    }
-}
 @media screen and (max-width: 767px) {
     /* 在螢幕寬度小於 767px 時使用以下 CSS 規則 */
     body {
@@ -39,22 +33,3 @@ p{
     }
 }
 
-/* 手機縱向提示*/
-@media only screen and (orientation: portrait) {
-    body::before {
-        content: "請旋轉裝置以獲得最佳觀看體驗";
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 24px;
-        color: rgb(31, 226, 229);
-        background-color: rgba(0, 0, 0, 0.7);
-        padding: 10px 20px;
-        z-index: 2;
-        text-align: center;
-    }
-    .video-back {
-        display: none; /* 防止影片在縱向模式下播放 */
-    }
-}
