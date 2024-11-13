@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    alert("驚嚇警告！請按確定以繼續。");
+    alert("驚嚇警告！請按確定以繼續。\n這只是我想分享我做的東西不是作業");
 
     const thevideo = document.getElementById("thevideo");
     const othervideo = document.getElementById("othervideo");
