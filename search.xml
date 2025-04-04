@@ -37,17 +37,6 @@
     
     
     <entry>
-      <title>連結</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>分類</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
@@ -59,9 +48,9 @@
     
     
     <entry>
-      <title>標籤</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>連結</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -73,6 +62,17 @@
       <title>音樂</title>
       <link href="/music/index.html"/>
       <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>標籤</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
