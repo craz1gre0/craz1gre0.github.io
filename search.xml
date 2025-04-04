@@ -26,9 +26,20 @@
     
     
     <entry>
-      <title>關於</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>分類</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>音樂</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -48,20 +59,9 @@
     
     
     <entry>
-      <title>分類</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>音樂</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title>關於</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
