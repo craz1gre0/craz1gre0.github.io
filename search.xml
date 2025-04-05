@@ -8,13 +8,13 @@
       <link href="/2025/04/04/discordbot/"/>
       <url>/2025/04/04/discordbot/</url>
       
-        <content type="html"><![CDATA[<p>你還點進來幹啥呢</p>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
       
       
         <tags>
             
-            <tag> 測試 </tag>
+            <tag> 哈哈 </tag>
             
         </tags>
       
@@ -59,17 +59,6 @@
     
     
     <entry>
-      <title>連結</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/js/universe.js"/>
       <url>/js/universe.js</url>
@@ -84,6 +73,17 @@
       <title>音樂</title>
       <link href="/music/index.html"/>
       <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>連結</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
