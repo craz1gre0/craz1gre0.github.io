@@ -26,11 +26,11 @@
     
     
     <entry>
-      <title>關於</title>
+      <title>關於我</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="👋-關於我"><a href="#👋-關於我" class="headerlink" title="👋 關於我"></a>👋 關於我</h2><p>我的興趣</p><ul><li>💻 coding python </li><li>🎶 KPOP aespa、babymonster</li><li>🎮 FPS</li><li>🏋️ workout</li></ul><p>歡迎來到我的網站～</p>]]></content>
       
     </entry>
     
@@ -48,9 +48,9 @@
     
     
     <entry>
-      <title>連結</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>音樂</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -59,9 +59,9 @@
     
     
     <entry>
-      <title>音樂</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title>連結</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
