@@ -97,7 +97,7 @@ div#archive {
 }
 
 /* 夜间模式遮罩 */
-[data-theme="dark"] #recent-posts > .recent-post-item,
+[data-theme="dark"] #recent-posts  .recent-post-item,
 [data-theme="dark"] #aside-content .card-widget,
 [data-theme="dark"] div#post,
 [data-theme="dark"] div#archive,
