@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Python 程式碼展示（可複製 / 下載）</title>
+  <title>HW250927</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans CJK TC", "Helvetica Neue", Arial; padding: 24px; background:#f6f8fb; color:#0b1220; }
     .card { background: #fff; border-radius: 10px; box-shadow: 0 6px 18px rgba(15,20,30,0.08); padding: 18px; max-width: 900px; margin: 0 auto; }
@@ -16,7 +16,7 @@
 </head>
 <body>
   <div class="card">
-    <h2>Python</h2>
+    <h2>HW250927</h2>
     <pre id="codeBlock">
 di = {
   'Alice': 72,
@@ -31,7 +31,7 @@ di = {
   'Jenny': 85
 }
 
-# 計算總分、及格與不及格名單
+
 total = 0
 pa = []
 out = []
@@ -42,11 +42,8 @@ for n, s in di.items():
         pa.append(n)
     else:
         out.append(n)
-
-# 平均（也可用 avg = total / len(di)）
+      
 avg = sum(di.values()) / len(di)
-
-# 及格率（百分比，四捨五入到小數點 1 位）
 palu = round(len(pa) / len(di) * 100, 1)
 
 print(f'總平均為: {avg}')
@@ -62,7 +59,7 @@ print("通過" if palu > 50 else "不通過")
     </div>
 
     <p class="note">
-      使用說明：按「複製程式碼」會把上方程式複製到剪貼簿；按「下載 .py」會把程式儲成檔案供下載（檔名：<code>grade_stats.py</code>）。
+          回家啦～
     </p>
   </div>
 
