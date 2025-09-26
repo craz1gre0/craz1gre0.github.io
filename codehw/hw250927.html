@@ -55,7 +55,6 @@ print("通過" if palu > 50 else "不通過")
 
     <div>
       <button class="btn btn-copy" id="copyBtn">複製程式碼</button>
-      <button class="btn btn-download" id="downloadBtn">下載 .py</button>
     </div>
 
     <p class="note">
@@ -66,7 +65,6 @@ print("通過" if palu > 50 else "不通過")
   <script>
     const codeBlock = document.getElementById('codeBlock');
     const copyBtn = document.getElementById('copyBtn');
-    const downloadBtn = document.getElementById('downloadBtn');
 
     copyBtn.addEventListener('click', async () => {
       try {
@@ -77,19 +75,6 @@ print("通過" if palu > 50 else "不通過")
       } catch (err) {
         alert('瀏覽器不支援自動複製，請手動選取並複製。');
       }
-    });
-
-    downloadBtn.addEventListener('click', () => {
-      const text = codeBlock.textContent;
-      const blob = new Blob([text], { type: 'text/x-python;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'grade_stats.py';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
     });
   </script>
 </body>
