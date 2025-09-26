@@ -46,7 +46,7 @@ for n, s in di.items():
 avg = sum(di.values()) / len(di)
 palu = round(len(pa) / len(di) * 100, 1)
 
-print(f'總平均為: {avg}')
+print(f'總平均為: {avg:.1f}')
 print(f'及格({len(pa)}人): {", ".join(pa)}')
 print(f'不及格({len(out)}人): {", ".join(out)}')
 print(f'及格率: {palu}%')
