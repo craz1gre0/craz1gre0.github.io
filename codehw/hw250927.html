@@ -1,0 +1,32 @@
+di = {
+  'Alice': 72,
+  'Bob': 89,
+  'Charlie': 65,
+  'Diana': 94,
+  'Ethan': 58,
+  'Fiona': 100,
+  'George': 47,
+  'Hannah': 76,
+  'Ivan': 63,
+  'Jenny': 85
+}
+
+total = 0
+pa = []
+out = []
+
+for n, s in di.items():
+    total += s
+    if s >= 60:
+        pa.append(n)
+    else:
+        out.append(n)
+
+avg = sum(di.values())/len(di)
+palu= round
+
+print(f'總平均為: {avg}')
+print(f"及格({len(pa)}人): {', '.join(pa)}")
+print(f"不及格({len(out)}人): {', '.join(out)}")
+print(f"及格率: {palu}%")
+print("通過" if palu > 50 else "不通過")
