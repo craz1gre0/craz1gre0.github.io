@@ -10,12 +10,10 @@ const EducationDataApp = () => {
 
     // 假資料（可換成 API）
     const teacherStudentRatioData = {
-        "113": { local: 12.5, national: 13.0 },
-        "112": { local: 12.8, national: 13.2 },
-        "111": { local: 13.0, national: 13.5 },
-        "110": { local: 13.4, national: 13.6 },
-        "109": { local: 13.7, national: 14.0 },
-        "108": { local: 14.0, national: 14.2 },
+        "112": { local: 12.4, national: 25.4 },
+        "111": { local: 12.6, national: 25.5 },
+        "110": { local: 12.8, national: 25.6 },
+        "109": { local: 13.0, national: 25.8 },
     };
 
     const handleTeacherStudentRatio = () => {
