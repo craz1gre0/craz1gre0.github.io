@@ -4,7 +4,7 @@ const EducationDataApp = () => {
     const [selectedData, setSelectedData] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    // 模擬教育數據
+    // 數據
     const educationData = {
         teacherStudentRatio: {
             title: "師生比",
