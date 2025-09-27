@@ -23,6 +23,9 @@ const EducationDataApp = () => {
     // 更新 Chart.js
     useEffect(() => {
         if (selectedData !== "teacherStudentRatio") return;
+        
+        // 加入空值檢查
+        if (!chartRef.current) return;
 
         const ctx = chartRef.current.getContext("2d");
         if (chartInstance.current) {
