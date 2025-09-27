@@ -115,7 +115,7 @@ const EducationDataApp = () => {
                             選擇學年度
                         </label>
                         <div className="year-buttons">
-                            {[113,112,111,110,109,108].map(y => (
+                            {[112,111,110,109].map(y => (
                                 <button
                                     key={y}
                                     className={`year-btn ${years.includes(String(y)) ? "active" : ""}`}
