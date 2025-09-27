@@ -35,7 +35,7 @@ const EducationDataApp = () => {
 
         const datasets = [
             {
-                label: "本地",
+                label: "偏鄉",
                 data: localData,
                 backgroundColor: "rgba(102, 126, 234, 0.7)",
                 borderColor: "rgba(102, 126, 234, 1)",
