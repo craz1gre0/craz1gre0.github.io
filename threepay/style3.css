@@ -161,7 +161,7 @@ body::before {
     }
 }
 
-/* 新增的控制區塊樣式 */
+/* 控制區塊樣式 */
 .controls-section {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
@@ -184,7 +184,7 @@ body::before {
     margin-bottom: 0.5rem;
 }
 
-/* 對比按鈕樣式 */
+/* 對比按鈕*/
 .compare-btn {
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.2);
@@ -216,7 +216,7 @@ body::before {
     transform: translateY(0) scale(0.95);
 }
 
-/* 學年度按鈕樣式 */
+/* 學年度按鈕 */
 .year-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -254,7 +254,7 @@ body::before {
     transform: translateY(0) scale(0.95);
 }
 
-/* 圖表類型按鈕樣式 */
+/* 圖表類型按鈕 */
 .chart-type-buttons {
     display: flex;
     gap: 0.75rem;
@@ -356,7 +356,7 @@ body::before {
     }
 }
 
-/* 響應式設計 */
+
 @media (max-width: 768px) {
     .main-title {
         font-size: 2rem;
@@ -381,7 +381,7 @@ body::before {
         padding: 1rem;
     }
 
-    /* 平板版按鈕尺寸調整 */
+    
     .year-btn {
         padding: 0.35rem 0.7rem;
         font-size: 0.8rem;
@@ -398,7 +398,7 @@ body::before {
         font-size: 0.9rem;
     }
 
-    /* 平板版圖表容器增大 */
+
     .chart-container {
         padding: 1.2rem;
         margin-top: 1.2rem;
@@ -430,7 +430,7 @@ body::before {
         font-size: 0.8rem;
     }
 
-    /* 手機版按鈕進一步縮小 */
+
     .year-btn {
         padding: 0.25rem 0.5rem;
         font-size: 0.75rem;
@@ -449,7 +449,7 @@ body::before {
         margin-bottom: 0.3rem;
     }
 
-    /* 手機版圖表容器大幅增大 */
+    /* 手機版圖表容器*/
     .chart-container {
         padding: 1.5rem 0.8rem;
         margin-top: 1.5rem;
@@ -489,7 +489,7 @@ body::before {
         font-size: 0.75rem;
     }
 
-    /* 超小螢幕圖表容器最大化 */
+    /* 超小螢幕圖表容器 */
     .chart-container {
         padding: 1.2rem 0.5rem;
         min-height: 280px;
