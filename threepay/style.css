@@ -1,285 +1,361 @@
 * {
-      box-sizing: border-box;
-    }
+  box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: 
-        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(120, 219, 226, 0.3) 0%, transparent 50%),
-        linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      position: relative;
-    }
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(120, 219, 226, 0.3) 0%, transparent 50%),
+    linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow-x: hidden;
+}
 
-    /* 液體背景動畫 */
-    body::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: 
-        radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-      background-size: 50px 50px;
-      animation: liquidMove 20s linear infinite;
-      z-index: 1;
-    }
+/* 修正液體背景動畫 - 防止手機背景過長 */
+body::before {
+  content: '';
+  position: fixed;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  background: 
+    radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: liquidMove 20s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
 
-    @keyframes liquidMove {
-      0% { transform: translateX(0) translateY(0) rotate(0deg); }
-      100% { transform: translateX(-50px) translateY(-50px) rotate(360deg); }
-    }
+@keyframes liquidMove {
+  0% { transform: translateX(0) translateY(0) rotate(0deg); }
+  100% { transform: translateX(-50px) translateY(-50px) rotate(360deg); }
+}
 
-    /* Bootstrap 主容器覆蓋 */
-    .container-fluid {
-      position: relative;
-      z-index: 10;
-      min-height: 100vh;
-    }
+/* Bootstrap 主容器覆蓋 */
+.container-fluid {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+}
 
-    /* 超級玻璃效果 */
-    .liquid-glass-container {
-      background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.4) 0%,
-        rgba(255, 255, 255, 0.1) 50%,
-        rgba(255, 255, 255, 0.3) 100%
-      );
-      backdrop-filter: blur(25px) saturate(200%);
-      border-radius: 30px;
-      padding: 60px 50px;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 
-        0 25px 45px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6),
-        inset 0 -1px 0 rgba(255, 255, 255, 0.2);
-      position: relative;
-      animation: float 6s ease-in-out infinite;
-      margin: auto;
-    }
+/* 超級玻璃效果 */
+.liquid-glass-container {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  backdrop-filter: blur(25px) saturate(200%);
+  border-radius: 30px;
+  padding: 60px 50px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 25px 45px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+  margin: auto;
+}
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-15px) rotate(0.5deg); }
-    }
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(0.5deg); }
+}
 
-    /* 液體邊框動畫 */
-    .liquid-glass-container::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(45deg, 
-        rgba(255, 255, 255, 0.6),
-        rgba(120, 119, 198, 0.4),
-        rgba(255, 119, 198, 0.4),
-        rgba(120, 219, 226, 0.4),
-        rgba(255, 255, 255, 0.6)
-      );
-      background-size: 400% 400%;
-      border-radius: 32px;
-      z-index: -1;
-      animation: liquidBorder 4s ease-in-out infinite;
-    }
+/* 液體邊框動畫 */
+.liquid-glass-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(255, 255, 255, 0.6),
+    rgba(120, 119, 198, 0.4),
+    rgba(255, 119, 198, 0.4),
+    rgba(120, 219, 226, 0.4),
+    rgba(255, 255, 255, 0.6)
+  );
+  background-size: 400% 400%;
+  border-radius: 32px;
+  z-index: -1;
+  animation: liquidBorder 4s ease-in-out infinite;
+}
 
-    @keyframes liquidBorder {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
+@keyframes liquidBorder {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
 
-    /* 標題效果 */
-    .liquid-title {
-      font-size: 3rem;
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 50px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      position: relative;
-    }
+/* 標題效果 */
+.liquid-title {
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 50px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
 
-    /* 按鈕容器 */
-    .button-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-      align-items: center;
-    }
+/* 按鈕容器 */
+.button-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
 
-    /* 液體玻璃按鈕 */
-    .liquid-btn {
-      position: relative;
-      padding: 20px 40px;
-      font-size: 1.3rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 20px;
-      background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.3) 0%,
-        rgba(255, 255, 255, 0.1) 100%
-      );
-      backdrop-filter: blur(15px);
-      color: #333;
-      cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-      overflow: hidden;
-      width: 100%;
-      max-width: 320px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      box-shadow: 
-        0 8px 25px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
-    }
+/* 液體玻璃按鈕 - 改善觸控體驗 */
+.liquid-btn {
+  position: relative;
+  padding: 20px 40px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  backdrop-filter: blur(15px);
+  color: #333;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  overflow: hidden;
+  width: 100%;
+  max-width: 320px;
+  min-height: 60px; /* 確保觸控區域足夠大 */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  /* 改善觸控響應 */
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  touch-action: manipulation;
+}
 
-    /* 按鈕液體效果 */
-    .liquid-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, 
-        transparent,
-        rgba(255, 255, 255, 0.4),
-        transparent
-      );
-      transition: left 0.6s ease;
-    }
+/* 按鈕觸控狀態 */
+.liquid-btn:active {
+  transform: translateY(-2px) scale(0.98);
+}
 
-    .liquid-btn:hover::before {
-      left: 100%;
-    }
+/* 按鈕液體效果 */
+.liquid-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
 
-    .liquid-btn:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-      background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.4) 0%,
-        rgba(255, 255, 255, 0.2) 100%
-      );
-    }
+.liquid-btn:hover::before {
+  left: 100%;
+}
 
-    /* 按鈕顏色變化 */
-    .liquid-btn.primary {
-      background: linear-gradient(135deg, 
-        rgba(102, 126, 234, 0.3) 0%,
-        rgba(118, 75, 162, 0.3) 100%
-      );
-      color: #fff;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    }
+.liquid-btn:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+}
 
-    .liquid-btn.success {
-      background: linear-gradient(135deg, 
-        rgba(17, 153, 142, 0.3) 0%,
-        rgba(56, 239, 125, 0.3) 100%
-      );
-      color: #fff;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    }
+/* 按鈕顏色變化 */
+.liquid-btn.primary {
+  background: linear-gradient(135deg, 
+    rgba(102, 126, 234, 0.3) 0%,
+    rgba(118, 75, 162, 0.3) 100%
+  );
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
 
-    .liquid-btn.warning {
-      background: linear-gradient(135deg, 
-        rgba(255, 154, 158, 0.3) 0%,
-        rgba(254, 207, 239, 0.3) 100%
-      );
-      color: #333;
-    }
+.liquid-btn.success {
+  background: linear-gradient(135deg, 
+    rgba(17, 153, 142, 0.3) 0%,
+    rgba(56, 239, 125, 0.3) 100%
+  );
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
 
-    /* 圖標動畫 */
-    .btn-icon {
-      display: inline-block;
-      margin-right: 12px;
-      font-size: 1.5rem;
-      transition: transform 0.3s ease;
-    }
+.liquid-btn.warning {
+  background: linear-gradient(135deg, 
+    rgba(255, 154, 158, 0.3) 0%,
+    rgba(254, 207, 239, 0.3) 100%
+  );
+  color: #333;
+}
 
-    .liquid-btn:hover .btn-icon {
-      transform: scale(1.2) rotate(10deg);
-    }
+/* 圖標動畫 */
+.btn-icon {
+  display: inline-block;
+  margin-right: 12px;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
 
-    /* 泡泡效果 */
-    .bubble {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      pointer-events: none;
-      animation: bubbleFloat 4s ease-in-out infinite;
-    }
+.liquid-btn:hover .btn-icon {
+  transform: scale(1.2) rotate(10deg);
+}
 
-    @keyframes bubbleFloat {
-      0%, 100% { 
-        transform: translateY(0px) scale(1);
-        opacity: 0.7;
-      }
-      50% { 
-        transform: translateY(-20px) scale(1.1);
-        opacity: 1;
-      }
-    }
+/* 泡泡效果 */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  animation: bubbleFloat 4s ease-in-out infinite;
+}
 
-    /* Modal 樣式 */
-    .modal-fullscreen { max-width: 100vw; }
-    .close-btn { font-size: 2rem; cursor: pointer; }
+@keyframes bubbleFloat {
+  0%, 100% { 
+    transform: translateY(0px) scale(1);
+    opacity: 0.7;
+  }
+  50% { 
+    transform: translateY(-20px) scale(1.1);
+    opacity: 1;
+  }
+}
 
-    /* Bootstrap 響應式覆蓋 */
-    @media (max-width: 576px) {
-      .liquid-glass-container {
-        padding: 30px 20px;
-        margin: 10px;
-      }
-      
-      .liquid-title {
-        font-size: 2rem;
-      }
-      
-      .liquid-btn {
-        padding: 15px 30px;
-        font-size: 1.1rem;
-        max-width: 280px;
-      }
-    }
+/* Modal 樣式 */
+.modal-fullscreen { 
+  max-width: 100vw; 
+}
 
-    @media (min-width: 577px) and (max-width: 768px) {
-      .liquid-glass-container {
-        padding: 40px 30px;
-      }
-      
-      .liquid-title {
-        font-size: 2.5rem;
-      }
-      
-      .liquid-btn {
-        max-width: 300px;
-      }
-    }
+.close-btn { 
+  font-size: 2rem; 
+  cursor: pointer; 
+  color: #666;
+  transition: color 0.3s ease;
+}
 
-    @media (min-width: 769px) and (max-width: 992px) {
-      .liquid-glass-container {
-        padding: 50px 40px;
-      }
-      
-      .liquid-btn {
-        max-width: 350px;
-      }
-    }
+.close-btn:hover {
+  color: #333;
+}
 
-    @media (min-width: 993px) {
-      .liquid-glass-container {
-        padding: 60px 50px;
-      }
-      
-      .liquid-btn {
-        max-width: 400px;
-      }
-    }
+/* 響應式設計 - 手機優化 */
+@media (max-width: 576px) {
+  body {
+    overflow-x: hidden;
+  }
+  
+  body::before {
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+  }
+  
+  .liquid-glass-container {
+    padding: 30px 20px;
+    margin: 10px;
+    max-width: calc(100vw - 20px);
+  }
+  
+  .liquid-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .liquid-btn {
+    padding: 18px 30px;
+    font-size: 1.1rem;
+    max-width: 100%;
+    min-height: 55px;
+  }
+  
+  .btn-icon {
+    font-size: 1.3rem;
+  }
+}
+
+/* 平板優化 */
+@media (min-width: 577px) and (max-width: 768px) {
+  .liquid-glass-container {
+    padding: 40px 30px;
+    max-width: 90%;
+  }
+  
+  .liquid-title {
+    font-size: 2.5rem;
+  }
+  
+  .liquid-btn {
+    max-width: 350px;
+    min-height: 65px;
+    padding: 22px 35px;
+  }
+}
+
+/* 中等螢幕 */
+@media (min-width: 769px) and (max-width: 992px) {
+  .liquid-glass-container {
+    padding: 50px 40px;
+    max-width: 80%;
+  }
+  
+  .liquid-btn {
+    max-width: 380px;
+  }
+}
+
+/* 大螢幕 */
+@media (min-width: 993px) {
+  .liquid-glass-container {
+    padding: 60px 50px;
+    max-width: 600px;
+  }
+  
+  .liquid-btn {
+    max-width: 400px;
+  }
+}
+
+/* 修正 iOS Safari 的 100vh 問題 */
+@supports (-webkit-touch-callout: none) {
+  .min-vh-100 {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* 改善表單元素的觸控體驗 */
+.form-check-input {
+  transform: scale(1.2);
+  margin-right: 8px;
+}
+
+.form-check-label {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* 確保圖表在小螢幕上正確顯示 */
+@media (max-width: 768px) {
+  .ratio-16x9 {
+    --bs-aspect-ratio: 75%; /* 調整比例適合小螢幕 */
+  }
+}
