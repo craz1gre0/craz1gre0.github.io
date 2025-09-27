@@ -187,7 +187,7 @@ const EducationDataApp = () => {
                         >
                             <div>
                                 <i className="fas fa-desktop button-icon"></i>
-                                每百位學生可用電腦數
+                                設備？
                             </div>
                         </button>
                     </div>
@@ -212,7 +212,7 @@ const EducationDataApp = () => {
                         </div>
                     )}
                     {selectedData === "teacherStudentRatio" && renderTeacherStudentRatio()}
-                    {selectedData === "computerRatio" && <p>電腦數據功能還沒做</p>}
+                    {selectedData === "computerRatio" && <p>設備功能還沒做</p>}
                     {selectedData === "achievementGap" && <p>學力差距功能還沒做</p>}
                 </div>
             </div>
