@@ -11,7 +11,6 @@ body {
     overflow-x: hidden;
 }
 
-/* 背景動畫 */
 body::before {
     content: '';
     position: fixed;
@@ -37,7 +36,6 @@ body::before {
     }
 }
 
-/* 玻璃效果容器 */
 .glass-container {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px);
@@ -62,7 +60,6 @@ body::before {
     }
 }
 
-/* 標題樣式 */
 .main-title {
     color: white;
     text-align: center;
@@ -82,7 +79,6 @@ body::before {
     }
 }
 
-/* 按鈕樣式 */
 .glass-button {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
@@ -131,14 +127,12 @@ body::before {
     transform: translateY(-2px) scale(0.98);
 }
 
-/* 圖標樣式 */
 .button-icon {
     font-size: 2rem;
     margin-bottom: 0.5rem;
     display: block;
 }
 
-/* 數據顯示區域 */
 .data-display {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
@@ -167,7 +161,6 @@ body::before {
     }
 }
 
-/* 流體動畫 */
 .fluid-bg {
     position: fixed;
     top: 0;
@@ -220,7 +213,6 @@ body::before {
     }
 }
 
-/* 響應式設計 */
 @media (max-width: 768px) {
     .main-title {
         font-size: 2rem;
@@ -242,7 +234,6 @@ body::before {
     }
 }
 
-/* 載入動畫 */
 .loading {
     display: inline-block;
     width: 20px;
