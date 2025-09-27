@@ -1,278 +1,187 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>台灣教育數據</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣教育數據</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <!-- MeshGradient 風格的背景 -->
-  <div class="mesh-gradient-background"></div>
-
-  <!-- Bootstrap-->
-  <div class="container-fluid d-flex align-items-center justify-content-center min-vh-100 py-4">
-    <div class="row w-100 justify-content-center">
-      <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
-        <div class="liquid-glass-container">
-          <h1 class="liquid-title">台灣教育數據</h1>
-          
-          <div class="button-grid">
-            <button class="liquid-btn primary" onclick="openModal('師生比')">
-              <span class="btn-icon">👨‍🏫</span>師生比
-            </button>
-            
-            <button class="liquid-btn success" onclick="openModal('電腦數')">
-              <span class="btn-icon">💻</span>每百位學生可用電腦數
-            </button>
-            
-            <button class="liquid-btn warning" onclick="openModal('學力差距')">
-              <span class="btn-icon">📊</span>學力差距
-            </button>
-          </div>
-        </div>
-      </div>
+    <div class="fluid-bg">
+        <div class="fluid-shape"></div>
+        <div class="fluid-shape"></div>
+        <div class="fluid-shape"></div>
     </div>
-  </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="dataModal" tabindex="-1">
-    <div class="modal-dialog modal-fullscreen">
-      <div class="modal-content p-4">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <h4 id="modalTitle" class="mb-0"></h4>
-          <span class="close-btn" data-bs-dismiss="modal">&times;</span>
-        </div>
+    <div id="root"></div>
 
-        <!-- 第一次選縣市 -->
-        <div id="citySection" class="mb-3">
-          <div class="row align-items-center">
-            <div class="col-auto">
-              <label class="form-label mb-0">選擇縣市：</label>
-            </div>
-            <div class="col-auto">
-              <select id="citySelect" class="form-select">
-                <option value="台北市">台北市</option>
-                <option value="新北市">新北市</option>
-                <option value="台中市">台中市</option>
-                <option value="高雄市">高雄市</option>
-              </select>
-            </div>
-            <div class="col-auto">
-              <button class="btn btn-primary" onclick="generateChart()">確認</button>
-            </div>
-          </div>
-        </div>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-      
-        <div id="multiSelect" class="mb-3 d-none">
-          <label class="form-label">選擇多個縣市：</label>
-          <div class="row">
-            <div class="col-6 col-md-3">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="台北市" id="check1">
-                <label class="form-check-label" for="check1">台北市</label>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="新北市" id="check2">
-                <label class="form-check-label" for="check2">新北市</label>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="台中市" id="check3">
-                <label class="form-check-label" for="check3">台中市</label>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="高雄市" id="check4">
-                <label class="form-check-label" for="check4">高雄市</label>
-              </div>
-            </div>
-          </div>
-          <div class="mt-2">
-            <button class="btn btn-primary" onclick="generateChart(true)">更新圖表</button>
-          </div>
-        </div>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
 
-      
-        <div id="controlSection" class="mb-3 d-none">
-          <div class="row g-3 align-items-center">
-            <div class="col-12 col-md-auto">
-              <button class="btn btn-outline-secondary" onclick="toggleMultiSelect()">多縣市對比</button>
-            </div>
+        const EducationDataApp = () => {
+            const [selectedData, setSelectedData] = useState(null);
+            const [loading, setLoading] = useState(false);
 
-            
-            <div class="col-12 col-md-auto">
-              <label class="form-label mb-1">圖表類型：</label>
-              <select id="chartType" class="form-select" onchange="generateChart(currentCities.length > 1)">
-                <option value="bar" selected>長條圖</option>
-                <option value="line">折線圖</option>
-                <option value="radar">雷達圖</option>
-              </select>
-            </div>
+            // 模擬教育數據
+            const educationData = {
+                teacherStudentRatio: {
+                    title: "師生比",
+                    data: [
+                        { level: "國小", ratio: "1:12.5", trend: "↓" },
+                        { level: "國中", ratio: "1:11.8", trend: "↓" },
+                        { level: "高中職", ratio: "1:15.2", trend: "→" },
+                        { level: "大專院校", ratio: "1:23.4", trend: "↑" }
+                    ],
+                    description: "台灣各教育階段師生比例統計，數字越小表示師資相對充足"
+                },
+                computerRatio: {
+                    title: "每百位學生可用電腦數",
+                    data: [
+                        { level: "國小", computers: 28, trend: "↑" },
+                        { level: "國中", computers: 35, trend: "↑" },
+                        { level: "高中職", computers: 42, trend: "↑" },
+                        { level: "大專院校", computers: 58, trend: "→" }
+                    ],
+                    description: "反映各教育階段數位教學資源配置情況"
+                },
+                achievementGap: {
+                    title: "學力差距",
+                    data: [
+                        { subject: "國語文", urban: 85.2, rural: 78.6, gap: 6.6 },
+                        { subject: "數學", urban: 82.4, rural: 74.1, gap: 8.3 },
+                        { subject: "英語", urban: 79.8, rural: 69.2, gap: 10.6 },
+                        { subject: "自然科學", urban: 81.5, rural: 75.8, gap: 5.7 }
+                    ],
+                    description: "城鄉學力差距分析，單位為平均分數"
+                }
+            };
 
-            
-            <div class="col-12 col-md-auto">
-              <label class="form-label mb-1">年份：</label>
-              <div class="d-flex gap-3 flex-wrap">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="2019" checked onchange="generateChart(currentCities.length > 1)" id="year2019">
-                  <label class="form-check-label" for="year2019">2019</label>
+            const handleDataRequest = (dataType) => {
+                setLoading(true);
+                setTimeout(() => {
+                    setSelectedData(educationData[dataType]);
+                    setLoading(false);
+                }, 800);
+            };
+
+            const renderDataContent = () => {
+                if (loading) {
+                    return (
+                        <div className="text-center">
+                            <div className="loading"></div>
+                            載入數據中...
+                        </div>
+                    );
+                }
+
+                if (!selectedData) {
+                    return (
+                        <div className="text-center">
+                            <i className="fas fa-chart-line mb-3" style={{fontSize: '3rem', opacity: 0.5}}></i>
+                            <p>請選擇上方按鈕查看教育數據統計</p>
+                        </div>
+                    );
+                }
+
+                return (
+                    <div>
+                        <h4 className="mb-3 text-center">
+                            <i className="fas fa-chart-bar me-2"></i>
+                            {selectedData.title}
+                        </h4>
+                        <p className="text-center mb-4 opacity-75">{selectedData.description}</p>
+                        
+                        <div className="row">
+                            {selectedData.data.map((item, index) => (
+                                <div key={index} className="col-md-6 col-lg-3 mb-3">
+                                    <div style={{
+                                        background: 'rgba(255, 255, 255, 0.1)',
+                                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                                        borderRadius: '10px',
+                                        padding: '1rem',
+                                        textAlign: 'center',
+                                        backdropFilter: 'blur(5px)'
+                                    }}>
+                                        <div className="fw-bold mb-2">
+                                            {item.level || item.subject}
+                                        </div>
+                                        <div className="h5 mb-2">
+                                            {item.ratio || item.computers || 
+                                             (item.gap && `${item.gap}分差距`) ||
+                                             `城:${item.urban} 鄉:${item.rural}`}
+                                        </div>
+                                        {item.trend && (
+                                            <div className="small">
+                                                趨勢: {item.trend}
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                );
+            };
+
+            return (
+                <div className="container-fluid">
+                    <div className="glass-container">
+                        <h1 className="main-title">
+                            <i className="fas fa-graduation-cap me-3"></i>
+                            台灣教育數據
+                        </h1>
+                        
+                        <div className="row">
+                            <div className="col-md-4 d-flex">
+                                <button 
+                                    className="glass-button w-100"
+                                    onClick={() => handleDataRequest('teacherStudentRatio')}
+                                >
+                                    <div>
+                                        <i className="fas fa-users button-icon"></i>
+                                        師生比
+                                    </div>
+                                </button>
+                            </div>
+                            <div className="col-md-4 d-flex">
+                                <button 
+                                    className="glass-button w-100"
+                                    onClick={() => handleDataRequest('computerRatio')}
+                                >
+                                    <div>
+                                        <i className="fas fa-desktop button-icon"></i>
+                                        每百位學生可用電腦數
+                                    </div>
+                                </button>
+                            </div>
+                            <div className="col-md-4 d-flex">
+                                <button 
+                                    className="glass-button w-100"
+                                    onClick={() => handleDataRequest('achievementGap')}
+                                >
+                                    <div>
+                                        <i className="fas fa-chart-line button-icon"></i>
+                                        學力差距
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="data-display">
+                            {renderDataContent()}
+                        </div>
+                    </div>
                 </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="2020" checked onchange="generateChart(currentCities.length > 1)" id="year2020">
-                  <label class="form-check-label" for="year2020">2020</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="2021" checked onchange="generateChart(currentCities.length > 1)" id="year2021">
-                  <label class="form-check-label" for="year2021">2021</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="2022" onchange="generateChart(currentCities.length > 1)" id="year2022">
-                  <label class="form-check-label" for="year2022">2022</label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            );
+        };
 
-        
-        <div id="chartSection" class="d-none">
-          <div class="ratio ratio-16x9">
-            <canvas id="chartCanvas"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script>
-    let chart;
-    let currentCities = [];
-
-    
-    function createBubbles() {
-      const container = document.querySelector('.liquid-glass-container');
-      
-      for (let i = 0; i < 5; i++) {
-        const bubble = document.createElement('div');
-        bubble.className = 'bubble';
-        
-        const size = Math.random() * 20 + 10;
-        bubble.style.width = size + 'px';
-        bubble.style.height = size + 'px';
-        bubble.style.left = Math.random() * 100 + '%';
-        bubble.style.top = Math.random() * 100 + '%';
-        bubble.style.animationDelay = Math.random() * 4 + 's';
-        
-        container.appendChild(bubble);
-      }
-    }
-
-    
-    document.addEventListener('DOMContentLoaded', createBubbles);
-
-    function openModal(title){
-      document.getElementById('modalTitle').innerText = title;
-
-      document.getElementById('citySection').classList.remove('d-none');
-      document.getElementById('chartSection').classList.add('d-none');
-      document.getElementById('controlSection').classList.add('d-none');
-      document.getElementById('multiSelect').classList.add('d-none');
-
-      let modal = new bootstrap.Modal(document.getElementById('dataModal'));
-      modal.show();
-    }
-
-    function toggleMultiSelect(){
-      let multiSelect = document.getElementById('multiSelect');
-      if(multiSelect.classList.contains('d-none')){
-        multiSelect.classList.remove('d-none');
-        document.querySelectorAll('#multiSelect input[type=checkbox]').forEach(cb => cb.checked = false);
-        currentCities.forEach(city=>{
-          let checkbox = document.querySelector(`#multiSelect input[value="${city}"]`);
-          if(checkbox) checkbox.checked = true;
-        });
-      } else {
-        multiSelect.classList.add('d-none');
-      }
-    }
-
-    function generateChart(isMulti=false){
-      let ctx = document.getElementById('chartCanvas').getContext('2d');
-      let selectedCities = [];
-      let selectedYears = [...document.querySelectorAll('#controlSection input[type=checkbox]:checked')].map(cb => cb.value);
-
-      if(isMulti){
-        selectedCities = [...document.querySelectorAll('#multiSelect input:checked')].map(cb => cb.value);
-        if(selectedCities.length === 0){
-          alert("請至少選擇一個縣市！");
-          return;
-        }
-      } else {
-        selectedCities = [document.getElementById('citySelect').value];
-        document.getElementById('citySection').classList.add('d-none');
-      }
-
-      currentCities = selectedCities;
-
-      let chartType = document.getElementById('chartType').value;
-      let colors = ['#007bff','#28a745','#ffc107','#dc3545'];
-      let datasets = selectedCities.map((city, i)=>({
-        label: city,
-        data: selectedYears.map(y=>Math.random()*100), // 假資料
-        borderColor: colors[i],
-        backgroundColor: chartType === 'line' ? 'transparent' : colors[i] + '40',
-        fill: chartType === 'line' ? false : true
-      }));
-
-      if(chart){ chart.destroy(); }
-      chart = new Chart(ctx, {
-        type: chartType,
-        data: {
-          labels: selectedYears,
-          datasets: datasets
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { 
-            legend: { 
-              position: 'top',
-              labels: {
-                usePointStyle: true,
-                padding: 20
-              }
-            } 
-          },
-          scales: chartType !== 'radar' ? {
-            y: {
-              beginAtZero: true,
-              grid: {
-                color: 'rgba(0,0,0,0.1)'
-              }
-            },
-            x: {
-              grid: {
-                color: 'rgba(0,0,0,0.1)'
-              }
-            }
-          } : {}
-        }
-      });
-
-      document.getElementById('chartSection').classList.remove('d-none');
-      document.getElementById('controlSection').classList.remove('d-none');
-    }
-  </script>
-
+        ReactDOM.render(<EducationDataApp />, document.getElementById('root'));
+    </script>
 </body>
 </html>
