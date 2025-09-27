@@ -2,7 +2,7 @@ const { useState, useEffect, useRef } = React;
 
 const EducationDataApp = () => {
     const [selectedData, setSelectedData] = useState(null);
-    const [years, setYears] = useState(["113"]);
+    const [years, setYears] = useState(["112"]);
     const [chartType, setChartType] = useState("bar");
     const [compare, setCompare] = useState(false);
     const chartRef = useRef(null);
