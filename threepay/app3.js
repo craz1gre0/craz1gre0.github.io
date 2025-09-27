@@ -95,7 +95,7 @@ const EducationDataApp = () => {
                     師生比
                 </h4>
 
-                {/* 功能區塊 - 優化響應式排版 */}
+                {/* 功能區塊阿拉花瓜 */}
                 <div className="controls-section mb-4">
                     {/* 對比按鈕 */}
                     <div className="control-group mb-3">
