@@ -1,0 +1,160 @@
+const { useState } = React;
+
+const EducationDataApp = () => {
+    const [selectedData, setSelectedData] = useState(null);
+    const [loading, setLoading] = useState(false);
+
+    // 模擬教育數據
+    const educationData = {
+        teacherStudentRatio: {
+            title: "師生比",
+            data: [
+                { level: "國小", ratio: "1:12.5", trend: "↓" },
+                { level: "國中", ratio: "1:11.8", trend: "↓" },
+                { level: "高中職", ratio: "1:15.2", trend: "→" },
+                { level: "大專院校", ratio: "1:23.4", trend: "↑" }
+            ],
+            description: "台灣各教育階段師生比例統計，數字越小表示師資相對充足"
+        },
+        computerRatio: {
+            title: "每百位學生可用電腦數",
+            data: [
+                { level: "國小", computers: 28, trend: "↑" },
+                { level: "國中", computers: 35, trend: "↑" },
+                { level: "高中職", computers: 42, trend: "↑" },
+                { level: "大專院校", computers: 58, trend: "→" }
+            ],
+            description: "反映各教育階段數位教學資源配置情況"
+        },
+        achievementGap: {
+            title: "學力差距",
+            data: [
+                { subject: "國語文", urban: 85.2, rural: 78.6, gap: 6.6 },
+                { subject: "數學", urban: 82.4, rural: 74.1, gap: 8.3 },
+                { subject: "英語", urban: 79.8, rural: 69.2, gap: 10.6 },
+                { subject: "自然科學", urban: 81.5, rural: 75.8, gap: 5.7 }
+            ],
+            description: "城鄉學力差距分析，單位為平均分數"
+        }
+    };
+
+    const handleDataRequest = (dataType) => {
+        setLoading(true);
+        setTimeout(() => {
+            setSelectedData(educationData[dataType]);
+            setLoading(false);
+        }, 800);
+    };
+
+    const renderDataContent = () => {
+        if (loading) {
+            return (
+                <div className="text-center">
+                    <div className="loading"></div>
+                    載入數據中...
+                </div>
+            );
+        }
+
+        if (!selectedData) {
+            return (
+                <div className="text-center">
+                    <i className="fas fa-chart-line mb-3" style={{fontSize: '3rem', opacity: 0.5}}></i>
+                    <p>請選擇上方按鈕查看教育數據統計</p>
+                </div>
+            );
+        }
+
+        return (
+            <div>
+                <h4 className="mb-3 text-center">
+                    <i className="fas fa-chart-bar me-2"></i>
+                    {selectedData.title}
+                </h4>
+                <p className="text-center mb-4 opacity-75">{selectedData.description}</p>
+                
+                <div className="row">
+                    {selectedData.data.map((item, index) => (
+                        <div key={index} className="col-md-6 col-lg-3 mb-3">
+                            <div style={{
+                                background: 'rgba(255, 255, 255, 0.1)',
+                                border: '1px solid rgba(255, 255, 255, 0.2)',
+                                borderRadius: '10px',
+                                padding: '1rem',
+                                textAlign: 'center',
+                                backdropFilter: 'blur(5px)'
+                            }}>
+                                <div className="fw-bold mb-2">
+                                    {item.level || item.subject}
+                                </div>
+                                <div className="h5 mb-2">
+                                    {item.ratio || item.computers || 
+                                     (item.gap && `${item.gap}分差距`) ||
+                                     `城:${item.urban} 鄉:${item.rural}`}
+                                </div>
+                                {item.trend && (
+                                    <div className="small">
+                                        趨勢: {item.trend}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
+    };
+
+    return (
+        <div className="container-fluid">
+            <div className="glass-container">
+                <h1 className="main-title">
+                    <i className="fas fa-graduation-cap me-3"></i>
+                    台灣教育數據
+                </h1>
+                
+                <div className="row">
+                    <div className="col-md-4 d-flex">
+                        <button 
+                            className="glass-button w-100"
+                            onClick={() => handleDataRequest('teacherStudentRatio')}
+                        >
+                            <div>
+                                <i className="fas fa-users button-icon"></i>
+                                師生比
+                            </div>
+                        </button>
+                    </div>
+                    <div className="col-md-4 d-flex">
+                        <button 
+                            className="glass-button w-100"
+                            onClick={() => handleDataRequest('computerRatio')}
+                        >
+                            <div>
+                                <i className="fas fa-desktop button-icon"></i>
+                                每百位學生可用電腦數
+                            </div>
+                        </button>
+                    </div>
+                    <div className="col-md-4 d-flex">
+                        <button 
+                            className="glass-button w-100"
+                            onClick={() => handleDataRequest('achievementGap')}
+                        >
+                            <div>
+                                <i className="fas fa-chart-line button-icon"></i>
+                                學力差距
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div className="data-display">
+                    {renderDataContent()}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+ReactDOM.render(<EducationDataApp />, document.getElementById('root'));
