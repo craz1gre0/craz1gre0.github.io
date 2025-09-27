@@ -8,7 +8,7 @@ const EducationDataApp = () => {
     const chartRef = useRef(null);
     let chartInstance = useRef(null);
 
-    // 假資料（可換成 API）
+    //資料
     const teacherStudentRatioData = {
         "112": { local: 12.4, national: 25.4 },
         "111": { local: 12.6, national: 25.5 },
@@ -20,11 +20,11 @@ const EducationDataApp = () => {
         setSelectedData("teacherStudentRatio");
     };
 
-    // 更新 Chart.js
+    //Chart.js
     useEffect(() => {
         if (selectedData !== "teacherStudentRatio") return;
         
-        // 加入空值檢查
+        // 空值檢查
         if (!chartRef.current) return;
 
         const ctx = chartRef.current.getContext("2d");
