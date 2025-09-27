@@ -32,7 +32,7 @@ const EducationDataApp = () => {
             chartInstance.current.destroy();
         }
 
-        const labels = years.sort((a, b) => b - a); // 由大到小
+        const labels = years.sort((a, b) => a - b); // 小到大
         const localData = labels.map(y => teacherStudentRatioData[y].local);
         const nationalData = labels.map(y => teacherStudentRatioData[y].national);
 
@@ -115,7 +115,7 @@ const EducationDataApp = () => {
                             選擇學年度
                         </label>
                         <div className="year-buttons">
-                            {[112,111,110,109].map(y => (
+                            {[109,110,111,112].map(y => (
                                 <button
                                     key={y}
                                     className={`year-btn ${years.includes(String(y)) ? "active" : ""}`}
