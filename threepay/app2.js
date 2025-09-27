@@ -1,12 +1,14 @@
-const { useState } = React;
+const { useState, useEffect, useRef } = React;
 
 const EducationDataApp = () => {
     const [selectedData, setSelectedData] = useState(null);
-    const [year, setYear] = useState("113");
+    const [years, setYears] = useState(["113"]);
     const [chartType, setChartType] = useState("bar");
     const [compare, setCompare] = useState(false);
+    const chartRef = useRef(null);
+    let chartInstance = useRef(null);
 
-    // 假資料（之後可改成 API）
+    // 假資料（可換成 API）
     const teacherStudentRatioData = {
         "113": { local: 12.5, national: 13.0 },
         "112": { local: 12.8, national: 13.2 },
@@ -20,9 +22,71 @@ const EducationDataApp = () => {
         setSelectedData("teacherStudentRatio");
     };
 
-    const renderTeacherStudentRatio = () => {
-        const data = teacherStudentRatioData[year];
+    // 更新 Chart.js
+    useEffect(() => {
+        if (selectedData !== "teacherStudentRatio") return;
 
+        const ctx = chartRef.current.getContext("2d");
+        if (chartInstance.current) {
+            chartInstance.current.destroy();
+        }
+
+        const labels = years.sort((a, b) => b - a); // 由大到小
+        const localData = labels.map(y => teacherStudentRatioData[y].local);
+        const nationalData = labels.map(y => teacherStudentRatioData[y].national);
+
+        const datasets = [
+            {
+                label: "本地",
+                data: localData,
+                backgroundColor: "rgba(102, 126, 234, 0.7)",
+                borderColor: "rgba(102, 126, 234, 1)",
+                borderWidth: 2,
+            }
+        ];
+
+        if (compare) {
+            datasets.push({
+                label: "全國",
+                data: nationalData,
+                backgroundColor: "rgba(255, 99, 132, 0.7)",
+                borderColor: "rgba(255, 99, 132, 1)",
+                borderWidth: 2,
+            });
+        }
+
+        chartInstance.current = new Chart(ctx, {
+            type: chartType,
+            data: {
+                labels,
+                datasets,
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        labels: { color: "white" }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: "white" }
+                    },
+                    y: {
+                        ticks: { color: "white" }
+                    }
+                }
+            }
+        });
+    }, [years, chartType, compare, selectedData]);
+
+    const toggleYear = (year) => {
+        setYears(prev => 
+            prev.includes(year) ? prev.filter(y => y !== year) : [...prev, year]
+        );
+    };
+
+    const renderTeacherStudentRatio = () => {
         return (
             <div>
                 <h4 className="mb-3 text-center">
@@ -39,16 +103,20 @@ const EducationDataApp = () => {
                         {compare ? "取消對比" : "和全國對比"}
                     </button>
 
-                    <select 
-                        className="form-select w-auto m-1"
-                        value={year}
-                        onChange={(e) => setYear(e.target.value)}
-                    >
+                    {/* 學年度多選 */}
+                    <div className="d-flex flex-wrap">
                         {[113,112,111,110,109,108].map(y => (
-                            <option key={y} value={y}>{y}學年度</option>
+                            <button
+                                key={y}
+                                className={`btn m-1 ${years.includes(String(y)) ? "btn-light" : "btn-outline-light"}`}
+                                onClick={() => toggleYear(String(y))}
+                            >
+                                {y}
+                            </button>
                         ))}
-                    </select>
+                    </div>
 
+                    {/* 圖表切換 */}
                     <select 
                         className="form-select w-auto m-1"
                         value={chartType}
@@ -59,18 +127,8 @@ const EducationDataApp = () => {
                     </select>
                 </div>
 
-                {/* 數據顯示 */}
-                <div className="text-center mb-3">
-                    <p>本地師生比：1:{data.local}</p>
-                    {compare && <p>全國師生比：1:{data.national}</p>}
-                </div>
-
-                {/* 圖表區（用 Chart.js 或假圖代替） */}
-                <div className="p-3 bg-dark rounded text-white text-center">
-                    <p>{chartType === "bar" ? "這裡會顯示長條圖" : "這裡會顯示折線圖"}</p>
-                    <p>年份：{year} 學年度</p>
-                    {compare ? <p>顯示「本地 vs 全國」</p> : <p>只顯示「本地」</p>}
-                </div>
+                {/* 圖表 */}
+                <canvas ref={chartRef} height="150"></canvas>
             </div>
         );
     };
@@ -119,7 +177,7 @@ const EducationDataApp = () => {
                     </div>
                 </div>
 
-                <div className="data-display">
+                <div className="data-display w-100">
                     {!selectedData && (
                         <div className="text-center">
                             <i className="fas fa-chart-line mb-3" style={{fontSize: '3rem', opacity: 0.5}}></i>
