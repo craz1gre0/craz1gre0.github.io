@@ -12,6 +12,10 @@
     .btn-copy { background:#2563eb; color:#fff; }
     .btn-download { background:#10b981; color:#fff; }
     .note { margin-top:10px; color:#334155; font-size:14px; }
+    .container-narrow {
+  max-width: 900px;
+  margin: 0 auto;
+}
   </style>
 </head>
 <body>
@@ -47,7 +51,9 @@ print(''.join(str(9 - int(ch)) for ch in s))
     });
   </script>
   <h2>留言區</h2>
+<div class="container-narrow">
   <div id="comments"></div>
+</div>
 
   <script src="https://giscus.app/client.js"
           data-repo="craz1gre0/comments"
