@@ -24,11 +24,11 @@
     <pre id="codeBlock">
 #1
 def calc_ticket_price(age):
-  
-  if age<12:return 150;
-  elif age>=12 and age<=22: return 240;
-  elif age>22 and age<=65: return 300;
-  elif age>65: return 210;
+  一般票價=300
+  if age<12:return 一般票價*0.5；
+  elif age>=12 and age<=22: return 一般票價*0.8；
+  elif age>22 and age<65: return 一般票價；
+  elif age>=65: return 一般票價*0.7；
   
 #2
 年齡s =[20, 70, 10, 35, 15]
@@ -114,4 +114,5 @@ for i in range(1,11):
   </script>
 </body>
 </html>
+
 
