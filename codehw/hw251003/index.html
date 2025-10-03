@@ -16,20 +16,28 @@
       max-width: 900px;
       margin: 0 auto;
     }
+    /* 標題區域 */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .header h2 {
+      margin: 0;
+    }
     /* 返回目錄按鈕樣式 */
     .back-btn {
-      position: fixed;
-      top: 24px;
-      right: 24px;
+      display: inline-block;
       background: #6366f1;
       color: #fff;
-      padding: 10px 16px;
+      padding: 8px 14px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
+      font-size: 14px;
       box-shadow: 0 4px 12px rgba(99,102,241,0.3);
       transition: all 0.3s ease;
-      z-index: 1000;
     }
     .back-btn:hover {
       background: #4f46e5;
@@ -39,11 +47,12 @@
   </style>
 </head>
 <body>
-  <!-- 返回目錄按鈕 -->
-  <a href="https://craz1gre0.com/codehw" class="back-btn">← 返回目錄</a>
-
   <div class="card">
-    <h2>HW251003</h2>
+    <div class="header">
+      <h2>HW251003</h2>
+      <a href="https://craz1gre0.com/codehw" class="back-btn">← 目錄</a>
+    </div>
+    
     <pre id="codeBlock">
 #1
 def calc_ticket_price(age):
@@ -96,7 +105,7 @@ for i in range(1,11):
       }
     });
 
-    // 下載功能
+    // 下載
     downloadBtn.addEventListener('click', () => {
       const text = codeBlock.textContent;
       const blob = new Blob([text], { type: 'text/plain' });
