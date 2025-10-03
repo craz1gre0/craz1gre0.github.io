@@ -25,25 +25,24 @@
 #1
 def calc_ticket_price(age):
   一般票價=300
-  if age<12:return 一般票價*0.5；
-  elif age>=12 and age<=22: return 一般票價*0.8；
-  elif age>22 and age<65: return 一般票價；
-  elif age>=65: return 一般票價*0.7；
+  if age<12:return 一般票價*0.5
+  elif age>=12 and age<=22: return 一般票價*0.8
+  elif age>22 and age<65: return 一般票價
+  elif age>=65: return 一般票價*0.7
   
 #2
 年齡s =[20, 70, 10, 35, 15]
 顧客票價=[]
 
 for 年齡 in 年齡s:
-   顧客票價.append((年齡, calc_ticket_price(年齡))) 
-  
+   顧客票價.append((年齡, int(calc_ticket_price(年齡)))) 
+   
 #3
 for i in range(1,11):
   票價 = 300*i
   if(i>=5):
     票價 = 票價*0.9
   print(int(票價))
-  
 
     </pre>
 
@@ -114,5 +113,6 @@ for i in range(1,11):
   </script>
 </body>
 </html>
+
 
 
