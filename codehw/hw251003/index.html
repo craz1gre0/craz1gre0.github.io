@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HW251003</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans CJK TC", "Helvetica Neue", Arial; padding: 24px; background:#f6f8fb; color:#0b1220; }
+    .card { background: #fff; border-radius: 10px; box-shadow: 0 6px 18px rgba(15,20,30,0.08); padding: 18px; max-width: 900px; margin: 0 auto; }
+    pre { background:#0f1724; color:#e6eef8; padding:16px; border-radius:6px; overflow:auto; white-space:pre-wrap; }
+    .btn { display:inline-block; margin:8px 6px 0 0; padding:8px 12px; border-radius:6px; border:none; cursor:pointer; font-weight:600; }
+    .btn-copy { background:#2563eb; color:#fff; }
+    .btn-download { background:#10b981; color:#fff; }
+    .note { margin-top:10px; color:#334155; font-size:14px; }
+    .container-narrow {
+  max-width: 900px;
+  margin: 0 auto;
+}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>HW251003</h2>
+    <pre id="codeBlock">
+#1
+def calc_ticket_price(age):
+  
+  if age<12:return 150;
+  elif age>=12 and age<=22: return 240;
+  elif age>22 and age<=65: return 300;
+  elif age>65: return 210;
+  
+  
+#2  
+for i in range(1,11):
+  票價 = 300*i
+  if(i>=5):
+    票價 = 票價*0.9
+  print(int(票價))
+  
+  
+#3
+年齡s =[20, 70, 10, 35, 15]
+顧客票價=[]
+
+for 年齡 in 年齡s:
+   顧客票價.append((年齡, calc_ticket_price(年齡))) 
+
+    </pre>
+
+    <div>
+      <button class="btn btn-copy" id="copyBtn">複製程式碼</button>
+    </div>
+
+    <p class="note">
+          中秋節快樂！🎉
+    </p>
+  </div>
+
+  <script>
+    const codeBlock = document.getElementById('codeBlock');
+    const copyBtn = document.getElementById('copyBtn');
+
+    copyBtn.addEventListener('click', async () => {
+      try {
+        const text = codeBlock.textContent;
+        await navigator.clipboard.writeText(text);
+        copyBtn.textContent = '已複製 ✓';
+        setTimeout(()=> copyBtn.textContent = '複製程式碼', 1400);
+      } catch (err) {
+        alert('瀏覽器不支援自動複製，請手動選取並複製。');
+      }
+    });
+  </script>
+    
+  <h2>留言區</h2>
+<div class="container-narrow">
+  <div id="comments"></div>
+</div>
+
+  <script src="https://giscus.app/client.js"
+          data-repo="craz1gre0/comments"
+          data-repo-id="R_kgDOP4IE4g"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOP4IE4s4Cv-PF"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-TW"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+</html>
