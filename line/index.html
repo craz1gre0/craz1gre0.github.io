@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>LIFF 自動發送訊息</title>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+  <h2>自動發送訊息到 LINE</h2>
+  <p id="status">正在處理中...</p>
+
+  <script>
+    async function main() {
+      await liff.init({ liffId: "YOUR_LIFF_ID" });
+      if (!liff.isLoggedIn()) {
+        liff.login();
+        return;
+      }
+
+      // 從網址讀取參數 ?text=XXXX
+      const urlParams = new URLSearchParams(window.location.search);
+      const msg = urlParams.get("text");
+
+      if (msg) {
+        try {
+          await liff.sendMessages([{
+            type: "text",
+            text: msg
+          }]);
+          document.getElementById("status").innerText = "訊息已發送：" + msg;
+          // 可選：發送後自動關閉 LIFF
+          liff.closeWindow();
+        } catch (err) {
+          console.error(err);
+          document.getElementById("status").innerText = "發送失敗：" + err;
+        }
+      } else {
+        document.getElementById("status").innerText = "沒有發現 text 參數。";
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
