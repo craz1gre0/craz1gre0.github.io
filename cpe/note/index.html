@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://craz1gre0.com/images/head.jpg">
 <meta property="article:published_time" content="2025-10-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-10-06T10:06:56.504Z">
+<meta property="article:modified_time" content="2025-10-06T12:55:18.600Z">
 <meta property="article:author" content="craz1gre0">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://craz1gre0.com/images/head.jpg"><link rel="shortcut icon" href="/images/head.jpg"><link rel="canonical" href="https://craz1gre0.com/cpe/note/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>
@@ -184,9 +184,22 @@
 <hr>
 <h2 id="5-getline-cin-str"><a href="#5-getline-cin-str" class="headerlink" title="5. getline(cin, str);"></a>5. getline(cin, str);</h2><ul>
 <li>功能：讀取一整行輸入（包含空格），並存入 <code>str</code> 字串中。  </li>
-<li>用法：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">  string str;</span><br><span class="line">  <span class="built_in">getline</span>(cin, str);</span><br><span class="line"></span><br><span class="line">* 與 `cin &gt;&gt; str;` 差異：</span><br><span class="line"></span><br><span class="line">  * `cin &gt;&gt; str;` 遇到空白就會結束讀取。</span><br><span class="line">  * `<span class="built_in">getline</span>(cin, str);` 會讀取整行直到換行符號。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## <span class="number">6.</span> cin.<span class="built_in">get</span>(text);</span><br><span class="line"></span><br><span class="line">* 功能：從輸入中讀取一個字元，存入 `text` 變數中。</span><br><span class="line">* 用法：</span><br><span class="line"></span><br><span class="line">  ```cpp</span><br><span class="line">  <span class="type">char</span> text;</span><br><span class="line">  cin.<span class="built_in">get</span>(text);</span><br></pre></td></tr></table></figure></li>
+<li>用法：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string str;</span><br><span class="line"><span class="built_in">getline</span>(cin, str);</span><br></pre></td></tr></table></figure></li>
 </ul>
 <ul>
+<li><p>與 <code>cin &gt;&gt; str;</code> 差異：</p>
+<ul>
+<li><code>cin &gt;&gt; str;</code> 遇到空白就會結束讀取。</li>
+<li><code>getline(cin, str);</code> 會讀取整行直到換行符號。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="6-cin-get-text"><a href="#6-cin-get-text" class="headerlink" title="6. cin.get(text);"></a>6. cin.get(text);</h2><ul>
+<li><p>功能：從輸入中讀取一個字元，存入 <code>text</code> 變數中。</p>
+</li>
+<li><p>用法：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> text;</span><br><span class="line">cin.<span class="built_in">get</span>(text);</span><br></pre></td></tr></table></figure></li>
 <li><p>也可以用 <code>cin.getline()</code> 讀取字元陣列：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> buffer[<span class="number">100</span>];</span><br><span class="line">cin.<span class="built_in">getline</span>(buffer, <span class="number">100</span>);</span><br></pre></td></tr></table></figure></li>
 </ul>
@@ -729,7 +742,6 @@
 </tr>
 </tbody></table>
 <hr>
-<p>好的 👍 我幫你寫一個從 ## 14 開始的 Markdown 筆記，主題是 C++ map，會包括常見用法與範例。</p>
 <h2 id="14-map"><a href="#14-map" class="headerlink" title="14 map"></a>14 map</h2><h3 id="14-1-基本介紹"><a href="#14-1-基本介紹" class="headerlink" title="14.1 基本介紹"></a>14.1 基本介紹</h3><ul>
 <li><code>map</code> 是 C++ STL 提供的關聯式容器 (associative container)。</li>
 <li>採用 <strong>紅黑樹 (balanced BST)</strong> 實作，因此：<ul>
@@ -741,246 +753,83 @@
 <li><code>key</code> 不可重複，若需要允許重複鍵，則使用 <code>multimap</code>。</li>
 </ul>
 <hr>
-<h3 id="14-2-宣告方式"><a href="#14-2-宣告方式" class="headerlink" title="14.2 宣告方式"></a>14.2 宣告方式</h3><pre><code class="language-cpp">#include &lt;iostream&gt;
-#include &lt;map&gt;
-using namespace std;
-
-int main() &#123;
-    map&lt;int, string&gt; m;   // key: int, value: string
-    map&lt;string, int&gt; cnt; // key: string, value: int
-&#125;
-
-
-⸻
-
-14.3 插入與存取
-
-map&lt;int, string&gt; m;
-
-// 插入資料
-m[1] = &quot;Apple&quot;;
-m[2] = &quot;Banana&quot;;
-m.insert(&#123;3, &quot;Cherry&quot;&#125;);
-
-// 存取資料
-cout &lt;&lt; m[1] &lt;&lt; endl;  // Apple
-cout &lt;&lt; m.at(2) &lt;&lt; endl;  // Banana
-
-⚠️ 使用 m[key] 若 key 不存在，會自動建立一個 預設值。
-若不想自動建立，請使用 m.at(key)。
-
-⸻
-
-14.4 常用函式
-
-// 檢查 key 是否存在
-if (m.find(3) != m.end()) &#123;
-    cout &lt;&lt; &quot;Key 3 exists.&quot; &lt;&lt; endl;
-&#125;
-
-// 刪除元素
-m.erase(2); // 刪除 key=2 的元素
-
-// 大小與清空
-cout &lt;&lt; m.size() &lt;&lt; endl;
-m.clear();
-
-
-⸻
-
-14.5 走訪元素
-
-map&lt;int, string&gt; m = &#123;
-    &#123;1, &quot;Apple&quot;&#125;,
-    &#123;2, &quot;Banana&quot;&#125;,
-    &#123;3, &quot;Cherry&quot;&#125;
-&#125;;
-
-// 使用 iterator
-for (auto it = m.begin(); it != m.end(); ++it) &#123;
-    cout &lt;&lt; it-&gt;first &lt;&lt; &quot; : &quot; &lt;&lt; it-&gt;second &lt;&lt; endl;
-&#125;
-
-// 使用 range-based for
-for (auto &amp;p : m) &#123;
-    cout &lt;&lt; p.first &lt;&lt; &quot; =&gt; &quot; &lt;&lt; p.second &lt;&lt; endl;
-&#125;
-
-輸出：
-
-1 : Apple
-2 : Banana
-3 : Cherry
-
-
-⸻
-
-14.6 範例應用：字數統計
-
-#include &lt;iostream&gt;
-#include &lt;map&gt;
-#include &lt;string&gt;
-using namespace std;
-
-int main() &#123;
-    map&lt;string, int&gt; wordCount;
-    string words[] = &#123;&quot;apple&quot;, &quot;banana&quot;, &quot;apple&quot;, &quot;cherry&quot;, &quot;banana&quot;, &quot;apple&quot;&#125;;
-
-    for (string w : words) &#123;
-        wordCount[w]++;
-    &#125;
-
-    for (auto &amp;p : wordCount) &#123;
-        cout &lt;&lt; p.first &lt;&lt; &quot; : &quot; &lt;&lt; p.second &lt;&lt; endl;
-    &#125;
-&#125;
-
-輸出：
-
-apple : 3
-banana : 2
-cherry : 1
-
-
-⸻
-
-14.7 總結
-    •    map 是 自動排序 並以 key-value 儲存的容器。
-    •    插入/刪除/查找為 O(log n)。
-    •    若需要保持插入順序或更快的存取，可使用 unordered_map (雜湊表)。
-
-⸻
-
-## 15 unordered_map
-
-### 15.1 基本介紹
-- `unordered_map` 是一種 **關聯式容器**，跟 `map` 類似，但底層使用 **雜湊表 (hash table)**。
-- 特點：
-  - 元素存取平均時間複雜度為 **O(1)**。
-  - 不會自動排序（元素順序不固定）。
-  - `key` 不可重複。
-
----
-
-### 15.2 宣告方式
-```cpp
-#include &lt;iostream&gt;
-#include &lt;unordered_map&gt;
-using namespace std;
-
-int main() &#123;
-    unordered_map&lt;int, string&gt; um;   // key: int, value: string
-    unordered_map&lt;string, int&gt; cnt; // key: string, value: int
-&#125;
-
-
-⸻
-
-15.3 插入與存取
-
-unordered_map&lt;int, string&gt; um;
-
-// 插入資料
-um[1] = &quot;Dog&quot;;
-um[2] = &quot;Cat&quot;;
-um.insert(&#123;3, &quot;Bird&quot;&#125;);
-
-// 存取資料
-cout &lt;&lt; um[1] &lt;&lt; endl;      // Dog
-cout &lt;&lt; um.at(2) &lt;&lt; endl;   // Cat
-
-⚠️ 與 map 相同，um[key] 若 key 不存在，會建立一個預設值。
-使用 at(key) 則會在 key 不存在時丟出 out_of_range 錯誤。
-
-⸻
-
-15.4 常用函式
-
-// 檢查 key 是否存在
-if (um.find(3) != um.end()) &#123;
-    cout &lt;&lt; &quot;Key 3 exists.&quot; &lt;&lt; endl;
-&#125;
-
-// 刪除元素
-um.erase(2); // 刪除 key=2
-
-// 大小與清空
-cout &lt;&lt; um.size() &lt;&lt; endl;
-um.clear();
-
-
-⸻
-
-15.5 走訪元素
-
-unordered_map&lt;int, string&gt; um = &#123;
-    &#123;1, &quot;Dog&quot;&#125;,
-    &#123;2, &quot;Cat&quot;&#125;,
-    &#123;3, &quot;Bird&quot;&#125;
-&#125;;
-
-// 使用 iterator
-for (auto it = um.begin(); it != um.end(); ++it) &#123;
-    cout &lt;&lt; it-&gt;first &lt;&lt; &quot; : &quot; &lt;&lt; it-&gt;second &lt;&lt; endl;
-&#125;
-
-// 使用 range-based for
-for (auto &amp;p : um) &#123;
-    cout &lt;&lt; p.first &lt;&lt; &quot; =&gt; &quot; &lt;&lt; p.second &lt;&lt; endl;
-&#125;
-
-輸出順序 不固定，可能是：
-
-2 : Cat
-1 : Dog
-3 : Bird
-
-
-⸻
-
-15.6 範例應用：字頻統計 (更快)
-
-#include &lt;iostream&gt;
-#include &lt;unordered_map&gt;
-#include &lt;string&gt;
-using namespace std;
-
-int main() &#123;
-    unordered_map&lt;string, int&gt; wordCount;
-    string words[] = &#123;&quot;dog&quot;, &quot;cat&quot;, &quot;dog&quot;, &quot;bird&quot;, &quot;cat&quot;, &quot;dog&quot;&#125;;
-
-    for (string w : words) &#123;
-        wordCount[w]++;
-    &#125;
-
-    for (auto &amp;p : wordCount) &#123;
-        cout &lt;&lt; p.first &lt;&lt; &quot; : &quot; &lt;&lt; p.second &lt;&lt; endl;
-    &#125;
-&#125;
-
-可能輸出：
-
-dog : 3
-cat : 2
-bird : 1
-
-
-⸻
-
-15.7 總結
-    •    unordered_map 與 map 的比較：
-
-特性    map    unordered_map
-底層結構    紅黑樹 (排序)    哈希表 (無序)
-存取效率    O(log n)    平均 O(1)，最差 O(n)
-是否排序    ✅ 自動排序    ❌ 無序
-適合場景    需要排序的情況    需要快速查找的情況
-
-
-
-⸻
+<h3 id="14-2-宣告方式"><a href="#14-2-宣告方式" class="headerlink" title="14.2 宣告方式"></a>14.2 宣告方式</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    map&lt;<span class="type">int</span>, string&gt; m;   <span class="comment">// key: int, value: string</span></span><br><span class="line">    map&lt;string, <span class="type">int</span>&gt; cnt; <span class="comment">// key: string, value: int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>⸻</p>
+<p>14.3 插入與存取</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">map&lt;<span class="type">int</span>, string&gt; m;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入資料</span></span><br><span class="line">m[<span class="number">1</span>] = <span class="string">&quot;Apple&quot;</span>;</span><br><span class="line">m[<span class="number">2</span>] = <span class="string">&quot;Banana&quot;</span>;</span><br><span class="line">m.<span class="built_in">insert</span>(&#123;<span class="number">3</span>, <span class="string">&quot;Cherry&quot;</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 存取資料</span></span><br><span class="line">cout &lt;&lt; m[<span class="number">1</span>] &lt;&lt; endl;  <span class="comment">// Apple</span></span><br><span class="line">cout &lt;&lt; m.<span class="built_in">at</span>(<span class="number">2</span>) &lt;&lt; endl;  <span class="comment">// Banana</span></span><br></pre></td></tr></table></figure>
+<p>⚠️ 使用 m[key] 若 key 不存在，會自動建立一個 預設值。<br>若不想自動建立，請使用 m.at(key)。</p>
+<p>⸻</p>
+<p>14.4 常用函式</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 檢查 key 是否存在</span></span><br><span class="line"><span class="keyword">if</span> (m.<span class="built_in">find</span>(<span class="number">3</span>) != m.<span class="built_in">end</span>()) &#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Key 3 exists.&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 刪除元素</span></span><br><span class="line">m.<span class="built_in">erase</span>(<span class="number">2</span>); <span class="comment">// 刪除 key=2 的元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 大小與清空</span></span><br><span class="line">cout &lt;&lt; m.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line">m.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure>
+
+<p>⸻</p>
+<p>14.5 走訪元素</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">map&lt;<span class="type">int</span>, string&gt; m = &#123;</span><br><span class="line">    &#123;<span class="number">1</span>, <span class="string">&quot;Apple&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">2</span>, <span class="string">&quot;Banana&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">3</span>, <span class="string">&quot;Cherry&quot;</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 iterator</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> it = m.<span class="built_in">begin</span>(); it != m.<span class="built_in">end</span>(); ++it) &#123;</span><br><span class="line">    cout &lt;&lt; it-&gt;first &lt;&lt; <span class="string">&quot; : &quot;</span> &lt;&lt; it-&gt;second &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 range-based for</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp;p : m) &#123;</span><br><span class="line">    cout &lt;&lt; p.first &lt;&lt; <span class="string">&quot; =&gt; &quot;</span> &lt;&lt; p.second &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>輸出：</p>
+<p>1 : Apple<br>2 : Banana<br>3 : Cherry</p>
+<p>⸻</p>
+<p>14.6 範例應用：字數統計</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    map&lt;string, <span class="type">int</span>&gt; wordCount;</span><br><span class="line">    string words[] = &#123;<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;apple&quot;</span>, <span class="string">&quot;cherry&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;apple&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (string w : words) &#123;</span><br><span class="line">        wordCount[w]++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;p : wordCount) &#123;</span><br><span class="line">        cout &lt;&lt; p.first &lt;&lt; <span class="string">&quot; : &quot;</span> &lt;&lt; p.second &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>輸出：</p>
+<p>apple : 3<br>banana : 2<br>cherry : 1</p>
+<p>⸻</p>
+<p>14.7 總結<br>    •    map 是 自動排序 並以 key-value 儲存的容器。<br>    •    插入&#x2F;刪除&#x2F;查找為 O(log n)。<br>    •    若需要保持插入順序或更快的存取，可使用 unordered_map (雜湊表)。</p>
+<p>⸻</p>
+<h2 id="15-unordered-map"><a href="#15-unordered-map" class="headerlink" title="15 unordered_map"></a>15 unordered_map</h2><h3 id="15-1-基本介紹"><a href="#15-1-基本介紹" class="headerlink" title="15.1 基本介紹"></a>15.1 基本介紹</h3><ul>
+<li><code>unordered_map</code> 是一種 <strong>關聯式容器</strong>，跟 <code>map</code> 類似，但底層使用 <strong>雜湊表 (hash table)</strong>。</li>
+<li>特點：<ul>
+<li>元素存取平均時間複雜度為 <strong>O(1)</strong>。</li>
+<li>不會自動排序（元素順序不固定）。</li>
+<li><code>key</code> 不可重複。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="15-2-宣告方式"><a href="#15-2-宣告方式" class="headerlink" title="15.2 宣告方式"></a>15.2 宣告方式</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    unordered_map&lt;<span class="type">int</span>, string&gt; um;   <span class="comment">// key: int, value: string</span></span><br><span class="line">    unordered_map&lt;string, <span class="type">int</span>&gt; cnt; <span class="comment">// key: string, value: int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>⸻</p>
+<p>15.3 插入與存取</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">unordered_map&lt;<span class="type">int</span>, string&gt; um;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入資料</span></span><br><span class="line">um[<span class="number">1</span>] = <span class="string">&quot;Dog&quot;</span>;</span><br><span class="line">um[<span class="number">2</span>] = <span class="string">&quot;Cat&quot;</span>;</span><br><span class="line">um.<span class="built_in">insert</span>(&#123;<span class="number">3</span>, <span class="string">&quot;Bird&quot;</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 存取資料</span></span><br><span class="line">cout &lt;&lt; um[<span class="number">1</span>] &lt;&lt; endl;      <span class="comment">// Dog</span></span><br><span class="line">cout &lt;&lt; um.<span class="built_in">at</span>(<span class="number">2</span>) &lt;&lt; endl;   <span class="comment">// Cat</span></span><br></pre></td></tr></table></figure>
+<p>⚠️ 與 map 相同，um[key] 若 key 不存在，會建立一個預設值。<br>使用 at(key) 則會在 key 不存在時丟出 out_of_range 錯誤。</p>
+<p>⸻</p>
+<p>15.4 常用函式</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 檢查 key 是否存在</span></span><br><span class="line"><span class="keyword">if</span> (um.<span class="built_in">find</span>(<span class="number">3</span>) != um.<span class="built_in">end</span>()) &#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Key 3 exists.&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 刪除元素</span></span><br><span class="line">um.<span class="built_in">erase</span>(<span class="number">2</span>); <span class="comment">// 刪除 key=2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 大小與清空</span></span><br><span class="line">cout &lt;&lt; um.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line">um.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure>
+
+<p>⸻</p>
+<p>15.5 走訪元素</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">unordered_map&lt;<span class="type">int</span>, string&gt; um = &#123;</span><br><span class="line">    &#123;<span class="number">1</span>, <span class="string">&quot;Dog&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">2</span>, <span class="string">&quot;Cat&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">3</span>, <span class="string">&quot;Bird&quot;</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 iterator</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> it = um.<span class="built_in">begin</span>(); it != um.<span class="built_in">end</span>(); ++it) &#123;</span><br><span class="line">    cout &lt;&lt; it-&gt;first &lt;&lt; <span class="string">&quot; : &quot;</span> &lt;&lt; it-&gt;second &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 range-based for</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp;p : um) &#123;</span><br><span class="line">    cout &lt;&lt; p.first &lt;&lt; <span class="string">&quot; =&gt; &quot;</span> &lt;&lt; p.second &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>輸出順序 不固定，可能是：</p>
+<p>2 : Cat<br>1 : Dog<br>3 : Bird</p>
+<p>⸻</p>
+<p>15.6 範例應用：字頻統計 (更快)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    unordered_map&lt;string, <span class="type">int</span>&gt; wordCount;</span><br><span class="line">    string words[] = &#123;<span class="string">&quot;dog&quot;</span>, <span class="string">&quot;cat&quot;</span>, <span class="string">&quot;dog&quot;</span>, <span class="string">&quot;bird&quot;</span>, <span class="string">&quot;cat&quot;</span>, <span class="string">&quot;dog&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (string w : words) &#123;</span><br><span class="line">        wordCount[w]++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;p : wordCount) &#123;</span><br><span class="line">        cout &lt;&lt; p.first &lt;&lt; <span class="string">&quot; : &quot;</span> &lt;&lt; p.second &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可能輸出：</p>
+<p>dog : 3<br>cat : 2<br>bird : 1</p>
+<p>⸻</p>
+<p>15.7 總結<br>    •    unordered_map 與 map 的比較：</p>
+<p>特性    map    unordered_map<br>底層結構    紅黑樹 (排序)    哈希表 (無序)<br>存取效率    O(log n)    平均 O(1)，最差 O(n)<br>是否排序    ✅ 自動排序    ❌ 無序<br>適合場景    需要排序的情況    需要快速查找的情況</p>
+<p>⸻</p>
+<h2 id="16-tolower-與-toupper"><a href="#16-tolower-與-toupper" class="headerlink" title="16 tolower() 與 toupper()"></a>16 tolower() 與 toupper()</h2><h3 id="16-1-函式來源"><a href="#16-1-函式來源" class="headerlink" title="16.1 函式來源"></a>16.1 函式來源</h3><ul>
+<li>這兩個函式定義在 <strong><code>&lt;cctype&gt;</code></strong> 標頭檔中。  </li>
+<li>用來轉換字元的大小寫。</li>
+</ul>
+<h3 id="16-2-基本用法"><a href="#16-2-基本用法" class="headerlink" title="16.2 基本用法"></a>16.2 基本用法</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">char</span> c1 = <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">    <span class="type">char</span> c2 = <span class="string">&#x27;z&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;tolower(&#x27;A&#x27;): &quot;</span> &lt;&lt; (<span class="type">char</span>)<span class="built_in">tolower</span>(c1) &lt;&lt; endl; <span class="comment">// a</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;toupper(&#x27;z&#x27;): &quot;</span> &lt;&lt; (<span class="type">char</span>)<span class="built_in">toupper</span>(c2) &lt;&lt; endl; <span class="comment">// Z</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>16.3 注意事項<br>    1.    傳入參數型態<br>    •    接受 int 型別（實際上會轉換為 unsigned char 處理）。<br>    •    輸入非字母字元時，會 原樣輸出。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; (<span class="type">char</span>)<span class="built_in">tolower</span>(<span class="string">&#x27;!&#x27;</span>) &lt;&lt; endl; <span class="comment">// 輸出仍為 &#x27;!&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>2.    避免直接對 string 使用
+•    tolower() 與 toupper() 是針對單一字元的函式。
+•    如果要處理整個字串，必須搭配迴圈或演算法。
 </code></pre>
-</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">craz1gre0</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">0</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/craz1gre0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://www.youtube.com/@Craz1gre0" target="_blank" title="Youtube"><i class="fab fa-youtube" style="color: #24292e;"></i></a><a class="social-icon" href="https://www.twitch.tv/craz1gre0" target="_blank" title="Twitch"><i class="fab fa-twitch" style="color: #24292e;"></i></a><a class="social-icon" href="https://payment.ecpay.com.tw/Broadcaster/Donate/8574CEB845C0341B2C74EDA703038779" target="_blank" title="ecpay"><i class="fab fa-dollar-sign" style="color: #24292e;"></i></a><a class="social-icon" href="https://open.spotify.com/playlist/6i65cQ8eWXF0mniUGmLBNL?si=4bed1d4702ae4962" target="_blank" title="spotify"><i class="fab fa-spotify" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我好懶喔~</div></div><div class="sticky_layout"><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>網站資訊</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章數量 :</div><div class="item-count">1</div></div><div class="webinfo-item"><div class="item-name">總字數 :</div><div class="item-count">14</div></div><div class="webinfo-item"><div class="item-name">訪客數 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">總瀏覽量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最後更新時間 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-10-06T10:07:13.542Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2025 By craz1gre0</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜尋</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  資料載入中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜尋文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+<p>16.4 轉換整個字串範例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string s = <span class="string">&quot;Hello World!&quot;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 全部轉小寫</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">char</span> &amp;c : s) &#123;</span><br><span class="line">        c = <span class="built_in">tolower</span>(c);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;小寫: &quot;</span> &lt;&lt; s &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 全部轉大寫</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">char</span> &amp;c : s) &#123;</span><br><span class="line">        c = <span class="built_in">toupper</span>(c);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;大寫: &quot;</span> &lt;&lt; s &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>16.5 與 transform 搭配</p>
+<p>C++ STL 提供了 transform() 可以更簡潔地轉換字串：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string s = <span class="string">&quot;Hello World!&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">transform</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>(), s.<span class="built_in">begin</span>(), ::tolower);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;小寫: &quot;</span> &lt;&lt; s &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">transform</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>(), s.<span class="built_in">begin</span>(), ::toupper);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;大寫: &quot;</span> &lt;&lt; s &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>16.6 小結<br>    •    tolower()：字元轉小寫<br>    •    toupper()：字元轉大寫<br>    •    非字母字元不受影響<br>    •    若要處理整個字串，需搭配迴圈或 transform()</p>
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">craz1gre0</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">0</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/craz1gre0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://www.youtube.com/@Craz1gre0" target="_blank" title="Youtube"><i class="fab fa-youtube" style="color: #24292e;"></i></a><a class="social-icon" href="https://www.twitch.tv/craz1gre0" target="_blank" title="Twitch"><i class="fab fa-twitch" style="color: #24292e;"></i></a><a class="social-icon" href="https://payment.ecpay.com.tw/Broadcaster/Donate/8574CEB845C0341B2C74EDA703038779" target="_blank" title="ecpay"><i class="fab fa-dollar-sign" style="color: #24292e;"></i></a><a class="social-icon" href="https://open.spotify.com/playlist/6i65cQ8eWXF0mniUGmLBNL?si=4bed1d4702ae4962" target="_blank" title="spotify"><i class="fab fa-spotify" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我好懶喔~</div></div><div class="sticky_layout"><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>網站資訊</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章數量 :</div><div class="item-count">1</div></div><div class="webinfo-item"><div class="item-name">總字數 :</div><div class="item-count">14</div></div><div class="webinfo-item"><div class="item-name">訪客數 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">總瀏覽量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最後更新時間 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-10-06T13:05:46.837Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2025 By craz1gre0</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜尋</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  資料載入中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜尋文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
 for(var i = 0;i<arr.length;i++){
     arr[i].classList.add('wow');
     arr[i].classList.add('animate__zoomIn');
