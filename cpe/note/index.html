@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://craz1gre0.com/images/head.jpg">
 <meta property="article:published_time" content="2025-10-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-10-06T12:55:18.600Z">
+<meta property="article:modified_time" content="2025-10-08T04:04:11.225Z">
 <meta property="article:author" content="craz1gre0">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://craz1gre0.com/images/head.jpg"><link rel="shortcut icon" href="/images/head.jpg"><link rel="canonical" href="https://craz1gre0.com/cpe/note/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>
@@ -829,7 +829,222 @@
 <p>C++ STL 提供了 transform() 可以更簡潔地轉換字串：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string s = <span class="string">&quot;Hello World!&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">transform</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>(), s.<span class="built_in">begin</span>(), ::tolower);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;小寫: &quot;</span> &lt;&lt; s &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">transform</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>(), s.<span class="built_in">begin</span>(), ::toupper);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;大寫: &quot;</span> &lt;&lt; s &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>16.6 小結<br>    •    tolower()：字元轉小寫<br>    •    toupper()：字元轉大寫<br>    •    非字母字元不受影響<br>    •    若要處理整個字串，需搭配迴圈或 transform()</p>
-</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">craz1gre0</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">0</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/craz1gre0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://www.youtube.com/@Craz1gre0" target="_blank" title="Youtube"><i class="fab fa-youtube" style="color: #24292e;"></i></a><a class="social-icon" href="https://www.twitch.tv/craz1gre0" target="_blank" title="Twitch"><i class="fab fa-twitch" style="color: #24292e;"></i></a><a class="social-icon" href="https://payment.ecpay.com.tw/Broadcaster/Donate/8574CEB845C0341B2C74EDA703038779" target="_blank" title="ecpay"><i class="fab fa-dollar-sign" style="color: #24292e;"></i></a><a class="social-icon" href="https://open.spotify.com/playlist/6i65cQ8eWXF0mniUGmLBNL?si=4bed1d4702ae4962" target="_blank" title="spotify"><i class="fab fa-spotify" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我好懶喔~</div></div><div class="sticky_layout"><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>網站資訊</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章數量 :</div><div class="item-count">1</div></div><div class="webinfo-item"><div class="item-name">總字數 :</div><div class="item-count">14</div></div><div class="webinfo-item"><div class="item-name">訪客數 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">總瀏覽量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最後更新時間 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-10-06T13:05:46.837Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2025 By craz1gre0</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜尋</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  資料載入中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜尋文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+<hr>
+<h2 id="17-bitset-bit-num-—-位元集合（bitset）的使用與進制轉換"><a href="#17-bitset-bit-num-—-位元集合（bitset）的使用與進制轉換" class="headerlink" title="17. bitset&lt;32&gt; bit(num); — 位元集合（bitset）的使用與進制轉換"></a>17. <code>bitset&lt;32&gt; bit(num);</code> — 位元集合（bitset）的使用與進制轉換</h2><h3 id="📘-基本概念-5"><a href="#📘-基本概念-5" class="headerlink" title="📘 基本概念"></a>📘 基本概念</h3><p><code>bitset</code> 是 C++ 中用來<strong>處理二進位資料</strong>的容器（在 <code>&lt;bitset&gt;</code> 標頭中）。<br>它能讓你輕鬆地表示、操作與輸出二進位形式的資料。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bitset&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function">bitset&lt;32&gt; <span class="title">bit</span><span class="params">(num)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>這行會建立一個 <strong>32 位元的二進位集合</strong>，並根據整數 <code>num</code> 的值來設定每一位元（bit）。</p>
+<hr>
+<h3 id="🧩-語法結構"><a href="#🧩-語法結構" class="headerlink" title="🧩 語法結構"></a>🧩 語法結構</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">bitset&lt;N&gt; <span class="title">bit</span><span class="params">(值)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>N</code></td>
+<td>位元數（如 8、16、32、64）</td>
+</tr>
+<tr>
+<td><code>值</code></td>
+<td>初始化值，可以是整數或字串</td>
+</tr>
+</tbody></table>
+<p>例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">bitset&lt;8&gt; <span class="title">b</span><span class="params">(<span class="number">13</span>)</span></span>;      <span class="comment">// 用整數初始化（13 的二進位是 00001101）</span></span><br><span class="line"><span class="function">bitset&lt;8&gt; <span class="title">b</span><span class="params">(<span class="string">&quot;1101&quot;</span>)</span></span>;  <span class="comment">// 用字串初始化（二進位字串）</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="🧮-範例一：整數轉二進位"><a href="#🧮-範例一：整數轉二進位" class="headerlink" title="🧮 範例一：整數轉二進位"></a>🧮 範例一：整數轉二進位</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">13</span>;</span><br><span class="line">    <span class="function">bitset&lt;8&gt; <span class="title">bit</span><span class="params">(num)</span></span>;  <span class="comment">// 8 位元表示 13</span></span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;十進位：&quot;</span> &lt;&lt; num &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;二進位：&quot;</span> &lt;&lt; bit &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>輸出結果：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">十進位：13</span><br><span class="line">二進位：00001101</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>📘 預設從 <strong>右邊開始表示最低位元 (LSB)</strong>，左邊是高位 (MSB)。</p>
+</blockquote>
+<hr>
+<h3 id="🧩-範例二：字串轉-bitset"><a href="#🧩-範例二：字串轉-bitset" class="headerlink" title="🧩 範例二：字串轉 bitset"></a>🧩 範例二：字串轉 bitset</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">bitset&lt;8&gt; <span class="title">bit</span><span class="params">(<span class="string">&quot;1101&quot;</span>)</span></span>;</span><br><span class="line">cout &lt;&lt; bit.<span class="built_in">to_ulong</span>();  <span class="comment">// 轉回整數：13</span></span><br></pre></td></tr></table></figure>
+
+<p>💡 注意：</p>
+<ul>
+<li>字串 <code>&quot;1101&quot;</code> 表示 <strong>最左邊是最高位元</strong>。</li>
+<li><code>to_ulong()</code> 可將 bitset 轉成 <code>unsigned long</code>。</li>
+</ul>
+<hr>
+<h3 id="⚙️-常用成員函式"><a href="#⚙️-常用成員函式" class="headerlink" title="⚙️ 常用成員函式"></a>⚙️ 常用成員函式</h3><table>
+<thead>
+<tr>
+<th>函式</th>
+<th>功能</th>
+<th>範例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>.set()</code></td>
+<td>將所有位元設為 1</td>
+<td><code>bit.set();</code> → 全部變 1</td>
+</tr>
+<tr>
+<td><code>.reset()</code></td>
+<td>將所有位元設為 0</td>
+<td><code>bit.reset();</code></td>
+</tr>
+<tr>
+<td><code>.flip()</code></td>
+<td>翻轉所有位元</td>
+<td><code>bit.flip();</code></td>
+</tr>
+<tr>
+<td><code>.count()</code></td>
+<td>回傳 1 的個數</td>
+<td><code>bit.count();</code></td>
+</tr>
+<tr>
+<td><code>.test(i)</code></td>
+<td>檢查第 i 位是否為 1</td>
+<td><code>bit.test(3)</code></td>
+</tr>
+<tr>
+<td><code>.any()</code></td>
+<td>是否有任何 1</td>
+<td><code>bit.any()</code></td>
+</tr>
+<tr>
+<td><code>.none()</code></td>
+<td>是否全為 0</td>
+<td><code>bit.none()</code></td>
+</tr>
+<tr>
+<td><code>.to_ulong()</code></td>
+<td>轉為 <code>unsigned long</code></td>
+<td><code>bit.to_ulong()</code></td>
+</tr>
+<tr>
+<td><code>.to_string()</code></td>
+<td>轉為字串</td>
+<td><code>bit.to_string()</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="🧠-範例三：基本操作"><a href="#🧠-範例三：基本操作" class="headerlink" title="🧠 範例三：基本操作"></a>🧠 範例三：基本操作</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">bitset&lt;8&gt; <span class="title">bit</span><span class="params">(<span class="number">5</span>)</span></span>;  <span class="comment">// 00000101</span></span><br><span class="line"></span><br><span class="line">    bit.<span class="built_in">set</span>(<span class="number">2</span>);        <span class="comment">// 設第2位為1 -&gt; 00000101 (本來就1)</span></span><br><span class="line">    bit.<span class="built_in">flip</span>(<span class="number">0</span>);       <span class="comment">// 翻轉第0位 -&gt; 00000100</span></span><br><span class="line">    bit.<span class="built_in">reset</span>(<span class="number">2</span>);      <span class="comment">// 將第2位設為0 -&gt; 00000000</span></span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;結果：&quot;</span> &lt;&lt; bit &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>輸出：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">結果：00000000</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="🧩-範例四：與位元運算結合"><a href="#🧩-範例四：與位元運算結合" class="headerlink" title="🧩 範例四：與位元運算結合"></a>🧩 範例四：與位元運算結合</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">bitset&lt;8&gt; <span class="title">a</span><span class="params">(<span class="string">&quot;10101010&quot;</span>)</span></span>;</span><br><span class="line"><span class="function">bitset&lt;8&gt; <span class="title">b</span><span class="params">(<span class="string">&quot;11001100&quot;</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">cout &lt;&lt; (a &amp; b) &lt;&lt; endl;  <span class="comment">// AND</span></span><br><span class="line">cout &lt;&lt; (a | b) &lt;&lt; endl;  <span class="comment">// OR</span></span><br><span class="line">cout &lt;&lt; (a ^ b) &lt;&lt; endl;  <span class="comment">// XOR</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>輸出：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10001000</span><br><span class="line">11101110</span><br><span class="line">01100110</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="🧠-常見用途"><a href="#🧠-常見用途" class="headerlink" title="🧠 常見用途"></a>🧠 常見用途</h3><table>
+<thead>
+<tr>
+<th>用途</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>二進位顯示</td>
+<td>將整數快速轉為二進位格式輸出</td>
+</tr>
+<tr>
+<td>狀態儲存</td>
+<td>使用位元代表多個布林狀態（如開關、條件）</td>
+</tr>
+<tr>
+<td>位元運算</td>
+<td>高效執行邏輯運算（AND &#x2F; OR &#x2F; XOR）</td>
+</tr>
+<tr>
+<td>演算法應用</td>
+<td>常見於位元 DP、集合子集處理、mask 編碼</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="⚠️-注意事項"><a href="#⚠️-注意事項" class="headerlink" title="⚠️ 注意事項"></a>⚠️ 注意事項</h3><ul>
+<li>若用 <code>bitset&lt;32&gt; bit(num);</code><br>則最大可表示 <code>2³²-1</code>（超過會被截斷）。</li>
+<li>若用字串初始化，<strong>長度必須 ≤ N</strong>，多的部分會被截掉。</li>
+<li><code>bitset</code> 大小固定，無法動態改變（不像 <code>vector&lt;bool&gt;</code>）。</li>
+</ul>
+<hr>
+<h3 id="💬-小結-3"><a href="#💬-小結-3" class="headerlink" title="💬 小結"></a>💬 小結</h3><table>
+<thead>
+<tr>
+<th>重點</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>bitset&lt;N&gt;</code> 是固定長度的二進位容器</td>
+<td>常用於進制轉換與位元運算</td>
+</tr>
+<tr>
+<td><code>bitset&lt;32&gt; bit(num);</code></td>
+<td>將整數 <code>num</code> 轉為 32 位元的二進位表示</td>
+</tr>
+<tr>
+<td><code>.to_string()</code> &#x2F; <code>.to_ulong()</code></td>
+<td>可互相轉換字串與整數</td>
+</tr>
+<tr>
+<td><code>.set()</code>、<code>.reset()</code>、<code>.flip()</code></td>
+<td>控制位元狀態</td>
+</tr>
+<tr>
+<td><code>.count()</code>、<code>.test()</code></td>
+<td>用於檢查或統計位元</td>
+</tr>
+</tbody></table>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">## 18. 關於 `stoi(str);`</span><br><span class="line"></span><br><span class="line">### 🧩 基本介紹  </span><br><span class="line">`stoi()` 是 C++ 中將 **字串（string）轉換成整數（int）** 的函式，定義於 `&lt;string&gt;` 標頭檔中。  </span><br><span class="line">名稱來自 **string to integer**。  </span><br><span class="line"></span><br><span class="line">### ⚠️ 注意事項</span><br><span class="line"></span><br><span class="line">1. **字串必須是可轉換為整數的格式**</span><br><span class="line"></span><br><span class="line">   * ✅ `&quot;123&quot;` 可行</span><br><span class="line">   * ❌ `&quot;12a3&quot;`、`&quot;abc&quot;` 會丟出例外（`std::invalid_argument`）</span><br><span class="line">2. **可能溢出**</span><br><span class="line"></span><br><span class="line">   * 若數值太大或太小超過 `int` 範圍，會拋出 `std::out_of_range`。</span><br><span class="line">3. **可以指定起始位置與進位基底**</span><br><span class="line"></span><br><span class="line">   ```cpp</span><br><span class="line">   int num = stoi(&quot;1010&quot;, nullptr, 2);  // 以二進位轉換 -&gt; 10</span><br></pre></td></tr></table></figure>
+
+<h3 id="🧮-延伸版本"><a href="#🧮-延伸版本" class="headerlink" title="🧮 延伸版本"></a>🧮 延伸版本</h3><table>
+<thead>
+<tr>
+<th>函式</th>
+<th>功能</th>
+<th>回傳型別</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>stoi()</code></td>
+<td>string → int</td>
+<td><code>int</code></td>
+</tr>
+<tr>
+<td><code>stol()</code></td>
+<td>string → long</td>
+<td><code>long</code></td>
+</tr>
+<tr>
+<td><code>stoll()</code></td>
+<td>string → long long</td>
+<td><code>long long</code></td>
+</tr>
+<tr>
+<td><code>stof()</code></td>
+<td>string → float</td>
+<td><code>float</code></td>
+</tr>
+<tr>
+<td><code>stod()</code></td>
+<td>string → double</td>
+<td><code>double</code></td>
+</tr>
+</tbody></table>
+<h3 id="✅-總結"><a href="#✅-總結" class="headerlink" title="✅ 總結"></a>✅ 總結</h3><ul>
+<li><code>stoi(str)</code> 用來將字串轉為整數。</li>
+<li>若字串不是合法數字或超出範圍，會丟出例外。</li>
+<li>可選用第三個參數指定進位（例如 2、8、16）。</li>
+</ul>
+<hr>
+<h2 id="18-字元轉整數"><a href="#18-字元轉整數" class="headerlink" title="18 字元轉整數"></a>18 字元轉整數</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> num = <span class="type">char</span>[i]-<span class="string">&quot;0&quot;</span>;</span><br></pre></td></tr></table></figure>
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">craz1gre0</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">0</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/craz1gre0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://www.youtube.com/@Craz1gre0" target="_blank" title="Youtube"><i class="fab fa-youtube" style="color: #24292e;"></i></a><a class="social-icon" href="https://www.twitch.tv/craz1gre0" target="_blank" title="Twitch"><i class="fab fa-twitch" style="color: #24292e;"></i></a><a class="social-icon" href="https://payment.ecpay.com.tw/Broadcaster/Donate/8574CEB845C0341B2C74EDA703038779" target="_blank" title="ecpay"><i class="fab fa-dollar-sign" style="color: #24292e;"></i></a><a class="social-icon" href="https://open.spotify.com/playlist/6i65cQ8eWXF0mniUGmLBNL?si=4bed1d4702ae4962" target="_blank" title="spotify"><i class="fab fa-spotify" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">我好懶喔~</div></div><div class="sticky_layout"><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>網站資訊</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章數量 :</div><div class="item-count">1</div></div><div class="webinfo-item"><div class="item-name">總字數 :</div><div class="item-count">14</div></div><div class="webinfo-item"><div class="item-name">訪客數 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">總瀏覽量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最後更新時間 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-10-08T04:06:52.642Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2025 By craz1gre0</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜尋</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  資料載入中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜尋文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
 for(var i = 0;i<arr.length;i++){
     arr[i].classList.add('wow');
     arr[i].classList.add('animate__zoomIn');
