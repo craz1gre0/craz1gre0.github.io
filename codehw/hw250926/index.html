@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HW250926</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans CJK TC", "Helvetica Neue", Arial; padding: 24px; background:#f6f8fb; color:#0b1220; }
+    .card { background: #fff; border-radius: 10px; box-shadow: 0 6px 18px rgba(15,20,30,0.08); padding: 18px; max-width: 900px; margin: 0 auto; }
+    pre { background:#0f1724; color:#e6eef8; padding:16px; border-radius:6px; overflow:auto; white-space:pre-wrap; }
+    .btn { display:inline-block; margin:8px 6px 0 0; padding:8px 12px; border-radius:6px; border:none; cursor:pointer; font-weight:600; }
+    .btn-copy { background:#2563eb; color:#fff; }
+    .btn-download { background:#10b981; color:#fff; }
+    .note { margin-top:10px; color:#334155; font-size:14px; }
+    .container-narrow {
+  max-width: 900px;
+  margin: 0 auto;
+}
+    /* 標題區域 */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    /* 返回目錄按鈕樣式 */
+    .back-btn {
+      display: inline-block;
+      background: #6366f1;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(99,102,241,0.3);
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      background: #4f46e5;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(99,102,241,0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h2>HW250926</h2>
+      <a href="https://codehw.craz1gre0.com" class="back-btn">← 目錄</a>
+    </div>
+    <pre id="codeBlock">
+di = {
+  'Hugo': 81,
+  'Oba': 28,
+  'Michael': 90,
+  'Cloud': 34,
+  'Nica': 59,
+  'Jay': 96,
+  'Tony': 62,
+  'Ruie': 85,
+  'Sam': 71,
+  'Oscar': 88
+}
+
+
+total = 0
+pa = []
+out = []
+
+for n, s in di.items():
+    if s >= 60:
+        pa.append(n)
+    else:
+        out.append(n)
+      
+avg = sum(di.values()) / len(di)
+palu = round(len(pa) / len(di) * 100, 1)
+
+print(f'總平均為: {avg:.1f}')
+print(f'及格({len(pa)}人): {", ".join(pa)}')
+print(f'不及格({len(out)}人): {", ".join(out)}')
+print(f'及格率: {palu}%')
+print("通過" if palu > 50 else "不通過")
+    </pre>
+
+    <div>
+      <button class="btn btn-copy" id="copyBtn">複製程式碼</button>
+    </div>
+
+    <p class="note">
+          回家啦～ 已經改好了可以直接用喔！
+    </p>
+  </div>
+
+  <script>
+    const codeBlock = document.getElementById('codeBlock');
+    const copyBtn = document.getElementById('copyBtn');
+
+    copyBtn.addEventListener('click', async () => {
+      try {
+        const text = codeBlock.textContent;
+        await navigator.clipboard.writeText(text);
+        copyBtn.textContent = '已複製 ✓';
+        setTimeout(()=> copyBtn.textContent = '複製程式碼', 1400);
+      } catch (err) {
+        alert('瀏覽器不支援自動複製，請手動選取並複製。');
+      }
+    });
+  </script>
+    
+  <h2>留言區</h2>
+<div class="container-narrow">
+  <div id="comments"></div>
+</div>
+
+  <script src="https://giscus.app/client.js"
+          data-repo="craz1gre0/comments"
+          data-repo-id="R_kgDOP4IE4g"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOP4IE4s4Cv-PF"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-TW"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+</html>
