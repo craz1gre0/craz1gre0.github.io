@@ -1,30 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
   <title>自動發送訊息</title>
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 </head>
 <body>
-  <script>
-    async function main() {
-      await liff.init({ liffId: "2008259299-aZKv2Rd2" }); // 你的 LIFF ID
+<script>
+  // 🔹 從網址取得參數
+  function getParameterByName(name) {
+    const url = new URL(window.location.href);
+    return url.searchParams.get(name);
+  }
 
-      if (!liff.isLoggedIn()) {
-        liff.login();
-        return;
-      }
+  async function main() {
+    // 🔹 初始化 LIFF
+    await liff.init({ liffId: "2008259299-aZKv2Rd2" }); // ← 你的 LIFF ID
 
-      // 發送訊息
-      await liff.sendMessages([
-        { type: "text", text: "你好啊" }
-      ]);
-
-      // 發送後自動關閉
-      liff.closeWindow();
+    // 🔹 檢查登入狀態
+    if (!liff.isLoggedIn()) {
+      liff.login();
+      return;
     }
 
-    main();
-  </script>
+    // 🔹 從網址參數讀取 type / text
+    const type = getParameterByName("type") || "text";
+    const text = getParameterByName("text") || "你好啊！";
+
+    try {
+      // 🔹 發送訊息（由使用者本人發送）
+      await liff.sendMessages([{ type, text }]);
+      alert("✅ 已發送訊息：" + text);
+    } catch (err) {
+      alert("❌ 發送失敗：" + err);
+      console.error(err);
+    }
+
+    // 🔹 自動關閉 LIFF 視窗
+    liff.closeWindow();
+  }
+
+  main();
+</script>
 </body>
 </html>
