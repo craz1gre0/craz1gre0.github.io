@@ -3,40 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>LIFF 自動發送訊息</title>
+  <title>LIFF 自動發訊息</title>
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    button { padding: 10px 20px; font-size: 16px; margin-top: 20px; }
+  </style>
 </head>
 <body>
-  <h3>正在準備發送訊息...</h3>
+  <h3 id="status">正在初始化 LIFF...</h3>
+  <div id="action"></div>
 
   <script>
-    // 你的 LIFF ID
     const liffId = "2008259299-aZKv2Rd2";
 
-    // 從網址抓參數
     function getParameterByName(name) {
       const url = new URL(window.location.href);
       return url.searchParams.get(name);
     }
 
     async function main() {
-      await liff.init({ liffId });
-      if (!liff.isLoggedIn()) {
-        liff.login();
-        return;
-      }
+      try {
+        await liff.init({ liffId });
+        document.getElementById("status").innerText = "LIFF 初始化完成";
 
-      const text = getParameterByName("text");
-      const type = getParameterByName("type") || "text";
+        if (!liff.isLoggedIn()) {
+          liff.login();
+          return;
+        }
 
-      if (text) {
-        await liff.sendMessages([
-          { type, text }
-        ]);
-        alert("訊息已發送 ✅");
-        liff.closeWindow();
-      } else {
-        document.body.innerHTML = "<h3>請在網址後加上 ?text=訊息內容</h3>";
+        const context = liff.getContext();
+        const text = getParameterByName("text");
+
+        if (!text) {
+          document.getElementById("status").innerText = "請在網址加上 ?text=訊息內容";
+          return;
+        }
+
+        // 檢查是否在聊天 context
+        if (context.type === "utou" || context.type === "group" || context.type === "room") {
+          // 在聊天中，直接發訊息
+          await liff.sendMessages([{ type: "text", text }]);
+          document.getElementById("status").innerText = "✅ 訊息已發送：" + text;
+          liff.closeWindow();
+        } else {
+          // 非聊天 context，提供按鈕導回 LINE
+          document.getElementById("status").innerText = "⚠️ 請從 LINE 聊天中打開此頁面";
+          const btn = document.createElement("button");
+          btn.innerText = "在 LINE 中打開";
+          btn.onclick = () => {
+            // 導回 LIFF 連結，LINE App 會打開
+            window.location.href = "https://liff.line.me/" + liffId + "?text=" + encodeURIComponent(text);
+          };
+          document.getElementById("action").appendChild(btn);
+        }
+      } catch (err) {
+        console.error(err);
+        document.getElementById("status").innerText = "❌ 發生錯誤：" + err;
       }
     }
 
