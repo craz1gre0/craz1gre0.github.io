@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>自動發送訊息</title>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+  <script>
+    async function main() {
+      await liff.init({ liffId: "1657022499-njBkN1k3" }); // 你的 LIFF ID
+
+      if (!liff.isLoggedIn()) {
+        liff.login();
+        return;
+      }
+
+      // 發送訊息
+      await liff.sendMessages([
+        { type: "text", text: "你好啊" }
+      ]);
+
+      // 發送後自動關閉
+      liff.closeWindow();
+    }
+
+    main();
+  </script>
+</body>
+</html>
