@@ -276,6 +276,10 @@
     "area": "斗六",
     "price": "$$",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.3436803083114!2d120.53539831232091!3d23.699417990640217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec9b8dcae3409%3A0x3f94407224df9510!2z6YCZ6Y2L57WV5bCP54Gr6Y2LIOaWl-WFreW6lyDlubPlg7nnvo7po5_ppJDlu7M!5e0!3m2!1szh-TW!2stw!4v1760273290406!5m2!1szh-TW!2stw"
+    "businessHours": [
+      { "start": "11:00", "end": "13:30" },
+      { "start": "16:30", "end": "19:30" }
+    ]
   },
   {
     "id": 28,
