@@ -1,1 +1,35 @@
-[  {    "id": 1,    "name": "Restaurant A",    "area": "Area 1",    "price": "$$",    "mapUrl": "http://example.com/map-a",    "businessHours": [{ "start": "", "end": "" }]  },  {    "id": 2,    "name": "Restaurant B",    "area": "Area 2",    "price": "$$$",    "mapUrl": "http://example.com/map-b",    "businessHours": [{ "start": "", "end": "" }]  },  ...  {    "id": 78,    "name": "Restaurant Z",    "area": "Area 3",    "price": "$$",    "mapUrl": "http://example.com/map-z",    "businessHours": [{ "start": "", "end": "" }]  }  ]
+[
+  {
+    "id": 1,
+    "name": "Restaurant A",
+    "area": "Area 1",
+    "price": "$$",
+    "mapUrl": "http://example.com/map-a",
+    "businessHours": [
+      { "start": "", "end": "" },
+      { "start": "", "end": "" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Restaurant B",
+    "area": "Area 2",
+    "price": "$$$",
+    "mapUrl": "http://example.com/map-b",
+    "businessHours": [
+      { "start": "", "end": "" },
+      { "start": "", "end": "" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Restaurant C",
+    "area": "Area 3",
+    "price": "$",
+    "mapUrl": "http://example.com/map-c",
+    "businessHours": [
+      { "start": "", "end": "" },
+      { "start": "", "end": "" }
+    ]
+  }
+]
