@@ -66,6 +66,10 @@
     "area": "斗六",
     "price": "$$",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.21166539863!2d120.54438591232085!3d23.70413419045964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec928bcae03b7%3A0x372b5a08c07896e8!2z6aOb5rOw5ZySIFRoYWkgRmxpZ2h0!5e0!3m2!1szh-TW!2stw!4v1760271797219!5m2!1szh-TW!2stw"
+    "businessHours": [
+      { "start": "11:30", "end": "15:00" },
+      { "start": "17:00", "end": "21:00" }
+    ]
   },
   {
     "id": 8,
@@ -73,6 +77,10 @@
     "area": "斗六",
     "price": "$$",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.539098765104!2d120.52855101232085!3d23.69243509090781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec80328ad94bd%3A0xa472ae77a27f4bef!2z5r6k55S65ouJ6bq1!5e0!3m2!1szh-TW!2stw!4v1760271814506!5m2!1szh-TW!2stw"
+    "businessHours": [
+      { "start": "11:00", "end": "13:30" },
+      { "start": "16:30", "end": "20:00" }
+    ]
   },
   {
     "id": 9,
@@ -80,6 +88,9 @@
     "area": "斗六",
     "price": "$$",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.5322796646883!2d120.52956521232099!3d23.692678790898388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec9cfe689d917%3A0x4d701a7307408f48!2z54Gw6Imy57at5bqmIOaXqeWNiOmkkOWSluWVoeW7sy_nvqnlpKfliKnpurUv5Li86aOvKOaWl-WFrSDlr7Xnianlj4vlloTvvIk!5e0!3m2!1szh-TW!2stw!4v1760271836959!5m2!1szh-TW!2stw"
+    "businessHours": [
+      { "start": "11:30", "end": "20:00" }
+    ]
   },
   {
     "id": 10,
@@ -87,6 +98,10 @@
     "area": "斗六",
     "price": "$",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58456.48154652429!2d120.49084954087898!3d23.692756806374003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec802c6969895%3A0x71d65538f8048edc!2z6L2J6KeS576O6aOf6aSo!5e0!3m2!1szh-TW!2stw!4v1760272766642!5m2!1szh-TW!2stw"
+    "businessHours": [
+      { "start": "11:00", "end": "13:30" },
+      { "start": "16:40", "end": "20:00" }
+    ]
   },
   {
     "id": 11,
@@ -94,6 +109,10 @@
     "area": "斗六",
     "price": "$$$",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58456.41604931177!2d120.49067785043523!3d23.69290310038439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec9c5d7262da5%3A0x68f95a02a30b4b18!2z5a2r5p2x5a-25Y-w5byP54mb5o6S5pWZ54i2IOaWl-WFreawkeeUn-WNl-W6lw!5e0!3m2!1szh-TW!2stw!4v1760272847328!5m2!1szh-TW!2stw"
+    "businessHours": [
+      { "start": "11:00", "end": "14:30" },
+      { "start": "17:30", "end": "21:30" }
+    ]
   },
   {
     "id": 12,
@@ -101,6 +120,10 @@
     "area": "斗六",
     "price": "$$",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.5470902077727!2d120.52589581232094!3d23.69214949091858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec80290b04ecf%3A0x22ef9cd919dccd6e!2z54O55bCP6a6u6bq16aSoL-aWl-WFreW_heWQgy_lt7flvITnvo7po58v5Lit5byP6bq16aOf!5e0!3m2!1szh-TW!2stw!4v1760272871000!5m2!1szh-TW!2stw"
+    "businessHours": [
+      { "start": "11:00", "end": "13:30" },
+      { "start": "16:30", "end": "19:30" }
+    ]
   },
   {
     "id": 13,
@@ -108,6 +131,10 @@
     "area": "斗六",
     "price": "$$",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.5426076240155!2d120.52697001232086!3d23.692309690912463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346eb66d04a543e3%3A0xe24b43ca98a4c444!2z5Y2z6aOf5qiC54SX54Ok576O6aOf!5e0!3m2!1szh-TW!2stw!4v1760272891115!5m2!1szh-TW!2stw"
+    "businessHours": [
+      { "start": "11:00", "end": "14:00" },
+      { "start": "17:00", "end": "21:00" }
+    ]
   },
   {
     "id": 14,
@@ -115,6 +142,9 @@
     "area": "斗六",
     "price": "$$",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14614.167722104525!2d120.5192183891059!3d23.692333889161674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec96523662c65%3A0xe268dc9f8d450910!2z5aSn5Z-U6ZC15p2_54eSIOaWl-WFreS4reWxseW6lw!5e0!3m2!1szh-TW!2stw!4v1760272915677!5m2!1szh-TW!2stw"
+    "businessHours": [
+      { "start": "11:00", "end": "24:00" }
+    ]
   },
   {
     "id": 15,
@@ -122,6 +152,9 @@
     "area": "斗六",
     "price": "$$",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d935250.5951926985!2d120.5381499!3d23.700169799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec818399fcafb%3A0x5d27637ea2d3f63e!2z5LiJ5aq96Iet6Iet6Y2LLeaWl-WFreS4reWxseW6lw!5e0!3m2!1szh-TW!2stw!4v1760272985847!5m2!1szh-TW!2stw"
+    "businessHours": [
+      { "start": "11:00", "end": "23:00" }
+    ]
   },
   {
     "id": 16,
@@ -129,6 +162,10 @@
     "area": "斗六",
     "price": "$$",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d935252.580823674!2d120.5353957832338!3d23.69989268635198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec82234415eb7%3A0x4f26d71fd9048724!2z6LGa5bCH5pel5pys5ouJ6bq1IOaWl-WFreW6lw!5e0!3m2!1szh-TW!2stw!4v1760273012439!5m2!1szh-TW!2stw"
+    "businessHours": [
+      { "start": "11:00", "end": "14:00" },
+      { "start": "17:00", "end": "20:00" }
+    ]
   },
   {
     "id": 17,
@@ -136,6 +173,9 @@
     "area": "斗六",
     "price": "$$",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d935254.5662165342!2d120.53264166645023!3d23.699615602882314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec9eeb2741fbd%3A0x305c44711ac97ad2!2z5LqU6a6u57Sa6Y2L54mp5bCI6LOjIOaWl-WFreS4reWgheilv-W6lw!5e0!3m2!1szh-TW!2stw!4v1760273038416!5m2!1szh-TW!2stw"
+    "businessHours": [
+      { "start": "11:00", "end": "2:00" }
+    ]
   },
   {
     "id": 18,
