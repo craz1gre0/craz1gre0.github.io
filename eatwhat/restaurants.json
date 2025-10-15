@@ -16,6 +16,9 @@
     "area": "斗六",
     "price": "$",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.5434722444525!2d120.52792971232091!3d23.69227879091376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec802d9402545%3A0xd72973855602c937!2z5YyX5pa55ZyS!5e0!3m2!1szh-TW!2stw!4v1760271643518!5m2!1szh-TW!2stw"
+    "businessHours": [
+      { "start": "11:00", "end": "19:30" }
+    ]
   },
   {
     "id": 3,
@@ -23,6 +26,9 @@
     "area": "斗六",
     "price": "$",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.543544995638!2d120.5279015123208!3d23.692276190913883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec802ddcd9eab%3A0x7d838a1d4c1780f6!2z5aSn55y-6aOf5aCC!5e0!3m2!1szh-TW!2stw!4v1760271624377!5m2!1szh-TW!2stw"
+    "businessHours": [
+      { "start": "10:30", "end": "20:00" }
+    ]
   },
   {
     "id": 4,
@@ -30,6 +36,9 @@
     "area": "斗六",
     "price": "$",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116913.26558003553!2d120.44792746499263!3d23.692418986955857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec90e74785ae1%3A0xd536e74afeb3d5b!2z6Zi_5Z-66Y2L54eS6Zuy56eR5bqX!5e0!3m2!1szh-TW!2stw!4v1760271677812!5m2!1szh-TW!2stw"
+    "businessHours": [
+      { "start": "9:00", "end": "21:00" }
+    ]
   },
   {
     "id": 5,
@@ -37,6 +46,9 @@
     "area": "斗六",
     "price": "$",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233479.92486814604!2d120.30194082434477!3d23.885227421872397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec802eb40ffa7%3A0xc320f68a883cb213!2z5LiQ5bmr5ru35ZGz6Zuy56eR5YiG6Ii1!5e0!3m2!1szh-TW!2stw!4v1760271782457!5m2!1szh-TW!2stw"
+    "businessHours": [
+      { "start": "16:30", "end": "1:00" }
+    ]
   },
   {
     "id": 6,
@@ -44,6 +56,9 @@
     "area": "斗六",
     "price": "$",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d228.34710783203323!2d120.52901405087441!3d23.691912361576467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec802eb1c99b1%3A0x8629301098ecb97c!2z5a626aaZ5Y-k5pep5ZGz!5e0!3m2!1szh-TW!2stw!4v1760271734323!5m2!1szh-TW!2stw"
+    "businessHours": [
+      { "start": "16:30", "end": "21:30" }
+    ]
   },
   {
     "id": 7,
