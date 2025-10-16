@@ -820,7 +820,7 @@
     ]
   },
   {
-    "id": 80,
+    "id": 81,
     "name": "色鼎燒肉",
     "area": "斗六",
     "price": "$$$",
@@ -828,6 +828,40 @@
     ,"businessHours": [
       { "start": "11:00", "end": "22:30" }
     ]
+  },
+  {
+    "id": 82,
+    "name": "老吳紅燒牛肉麵",
+    "area": "斗六",
+    "price": "$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.152625820075!2d120.5355938124031!3d23.706243078611802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec8233975c5b5%3A0xd89621237088e713!2z6ICB5ZCz57SF54eS54mb6IKJ6bq1!5e0!3m2!1szh-TW!2stw!4v1760608019069!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "11:30", "end": "14:20" },
+      { "start": "17:00", "end": "21:00" }
+    ]
+  },
+  {
+    "id": 83,
+    "name": "亞都鐵板燒",
+    "area": "斗六",
+    "price": "$$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.1527714032554!2d120.53538991240328!3d23.7062378786118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec82285adc6e7%3A0x8f0e5b2f1d941f1b!2z5Lqe6YO96ZC15p2_54eS!5e0!3m2!1szh-TW!2stw!4v1760608112228!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "11:00", "end": "14:00" },
+      { "start": "17:00", "end": "20:30" }
+    ]
+  },
+  {
+    "id": 84,
+    "name": "九湯屋日本拉麵",
+    "area": "斗六",
+    "price": "$$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.1184941328306!2d120.53449021240303!3d23.707462178610882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec8237b110de5%3A0x367b566012eba3ba!2z5Lmd5rmv5bGL5pel5pys5ouJ6bq15bqXLeaWl-WFreW6lw!5e0!3m2!1szh-TW!2stw!4v1760608158301!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "11:00", "end": "14:30" },
+      { "start": "16:30", "end": "20:30" }
+    ]
   }
+  
   
 ]
