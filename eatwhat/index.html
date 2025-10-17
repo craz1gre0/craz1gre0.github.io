@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今天吃什麼？轉盤抽選</title>
+    <meta name="keywords" content="雲科今天吃什麼,斗六食物轉盤,雲科食物轉盤,雲科轉盤" />
+    <meta name="description" content="怕你不知道要吃甚麼，讓轉盤幫你決定！">
+    <link rel="icon" href="./images/icon.png" type="image/x-icon" />
+    <meta property="og:image" content="https://craz1gre0.com/eatwhat/icon.png" >
+    <link rel="apple-touch-icon" href="./images/icon.png" />
+    <meta name="author" content="craz1gre0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.counter.dev/script.js" data-id="6a66b788-1c9b-4f79-8bdd-069bf674e243" data-utcoffset="8"></script>
+</head>
+<body>
+    <main class="main-content">
+        <div class="container">
+            <div class="title-container">
+                <h1 class="page-title"> 今天吃什麼？</h1>
+                <!-- iOS 加入主畫面按鈕 -->
+                <a href="./add/add.md" id="iosAddButton" class="ios-add-button" style="display: none;">+</a>
+            </div>
+        <div class="row g-3">
+            <div class="col-lg-6">
+                <div class="card filter-card">
+                    <div class="card-body">
+                        <h5><i class="bi bi-funnel"></i> 篩選條件</h5>
+                        <button class="filter-btn" data-bs-toggle="modal" data-bs-target="#filterModal">
+                            <i class="bi bi-sliders"></i> 設定篩選條件
+                        </button>
+                        <div class="filter-tags" id="filterTags">
+                            <span class="text-muted small">尚未選擇任何條件</span>
+                        </div>
+                        <div class="match-count" id="matchCount">符合條件的餐廳：載入中...</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="wheel-container">
+                            <div class="wheel-wrapper">
+                                <div class="wheel-pointer"></div>
+                                <canvas id="wheelCanvas" width="400" height="400"></canvas>
+                            </div>
+                            <button class="spin-button" id="spinButton" onclick="spinWheel()">
+                                <i class="bi bi-arrow-repeat"></i> 開始轉動
+                            </button>
+                        </div>
+                        <div class="candidate-list" id="candidateList"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="result-section" id="resultSection">
+                            <div class="result-header">
+                                <h2><i class="bi bi-star-fill text-warning"></i> <span id="resultName"></span></h2>
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-4">
+                                    <div class="info-card">
+                                        <div class="label">編號</div>
+                                        <div class="value" id="resultId">-</div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="info-card">
+                                        <div class="label">地區</div>
+                                        <div class="value" id="resultArea">-</div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="info-card">
+                                        <div class="label">價位</div>
+                                        <div class="value" id="resultPrice">-</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="map-container" id="mapContainer">
+                                <div class="no-map"> 暫無地圖資訊</div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <button class="btn btn-reset" onclick="resetWheel()">
+                                    <i class="bi bi-arrow-clockwise"></i> 重新抽選
+                                </button>
+                                <button class="btn btn-delete-result" onclick="deleteCurrentRestaurant()">
+                                    <i class="bi bi-trash"></i> 刪除此餐廳
+                                </button>
+                            </div>
+                        </div>
+                        <div id="initialMessage" class="initial-message">
+                            <i class="bi bi-dice-5"></i>
+                            <h3>選擇條件後，點擊轉動按鈕開始抽選！</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="admin-link">
+            <a href="https://craz1gre0.com/manager/" class="btn">
+                <i class="bi bi-gear"></i> 管理餐廳資料
+            </a>
+        </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                <p>Copyright © 2025 craz1gre0 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 篩選條件 Modal -->
+    <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="filterModalLabel"><i class="bi bi-sliders"></i> 設定篩選條件</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="filter-group">
+                        <label><i class="bi bi-clock"></i> 營業狀態 <small class="text-muted">(通常營業時間)</small></label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="openNowCheckbox" checked>
+                                <label for="openNowCheckbox">僅顯示營業中</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="openingSoonCheckbox" checked>
+                                <label for="openingSoonCheckbox">即將營業（15分鐘內）</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <label><i class="bi bi-geo-alt"></i> 地區（可多選）</label>
+                        <div class="checkbox-group" id="areaCheckboxes"></div>
+                    </div>
+                    <div class="filter-group">
+                        <label><i class="bi bi-currency-dollar"></i> 價位（可多選）</label>
+                        <div class="checkbox-group" id="priceCheckboxes">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="price_$" value="$">
+                                <label for="price_$">$ (平價)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="price_$$" value="$$">
+                                <label for="price_$$">$$ (中價)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="price_$$$" value="$$$">
+                                <label for="price_$$$">$$$ (高價)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="clearFilters()">清除全部</button>
+                    <button type="button" class="btn btn-primary" onclick="applyFiltersFromModal()" data-bs-dismiss="modal">
+                        <i class="bi bi-check-circle"></i> 套用篩選
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Winwheel.js 套件 -->
+    <script src="https://cdn.jsdelivr.net/gh/zarocknz/javascript-winwheel@master/Winwheel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.obfuscated.js"></script>
+</body>
+
+</html>
+
+
+
+
