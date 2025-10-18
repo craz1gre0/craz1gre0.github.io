@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="author" content="craz1gre0">
+  <meta name="description" content="Week 6 Homework: 二手平台">
+  <title>HW251017</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans CJK TC", "Helvetica Neue", Arial;
+      padding: 24px;
+      background:#f6f8fb;
+      color:#0b1220;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(15,20,30,0.08);
+      padding: 18px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .btn { display:inline-block; margin:8px 6px 0 0; padding:8px 12px; border-radius:6px; border:none; cursor:pointer; font-weight:600; }
+    .btn-copy { background:#2563eb; color:#fff; }
+    .btn-download { background:#10b981; color:#fff; }
+    .note { margin-top:10px; color:#334155; font-size:14px; }
+    
+    /* 標題區域 */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .header h2 { margin: 0; }
+    
+    .back-btn {
+      display: inline-block;
+      background: #6366f1;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(99,102,241,0.3);
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      background: #4f46e5;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(99,102,241,0.4);
+    }
+    
+    /* Code Window */
+    .code-window {
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 20px 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      font-family: "Fira Code", Consolas, monospace;
+    }
+    .code-header {
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 6px 12px;
+      font-weight: bold;
+      font-size: 13px;
+    }
+    .circle {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+    .red { background: #ff5f56; }
+    .yellow { background: #ffbd2e; }
+    .green { background: #27c93f; }
+    .code-body {
+      background: #2d2d2d;
+      color: #d4d4d4;
+      display: flex;
+    }
+    .line-numbers {
+      text-align: left;
+      padding: 0;
+      background: #2d2d2d;
+      color: #858585;
+      user-select: none;
+      width: auto;
+      min-width: unset;
+      font-size: 14px;
+      line-height: 1.5;
+      padding-left: 8px;
+      padding-right: 6px;
+    }
+    .code-content {
+      padding: 0;
+      padding-left: 8px;
+      overflow-x: auto;
+      white-space: pre;
+      flex: 1;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+    }
+    
+    /* Python 語法高亮 */
+    .keyword { color: #569cd6; } /* 關鍵字：藍色 */
+    .string { color: #ce9178; } /* 字串：橘色 */
+    .number { color: #b5cea8; } /* 數字：淡綠色 */
+    .comment { color: #6a9955; } /* 註解：綠色 */
+    .function { color: #dcdcaa; } /* 函數名：黃色 */
+    .operator { color: #d4d4d4; } /* 操作符：白色 */
+    .variable { color: #9cdcfe; } /* 變數：淡藍色 */
+    
+    /* 留言區樣式 */
+    .container-narrow {
+      max-width: 900px;
+      margin: 40px auto 0;
+      padding: 0 18px;
+    }
+    .container-narrow h2 {
+      color: #0b1220;
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    #comments {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(15,20,30,0.08);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h2>HW251017</h2>
+      <a href="https://codehw.craz1gre0.com" class="back-btn">← 目錄</a>
+    </div>
+
+    <!-- Code Window -->
+    <div class="code-window">
+      <div class="code-header">
+        <div class="circle red"></div>
+        <div class="circle yellow"></div>
+        <div class="circle green"></div>
+        <span style="margin-left:8px;">PYTHON</span>
+      </div>
+      <div class="code-body">
+        <div class="line-numbers" id="lineNumbers"></div>
+        <pre class="code-content" id="codeBlock"><span class="comment">#我覺得這次題目蠻死的，應該每個人寫出來都幾乎一樣，然後還是解釋一下</span>
+
+<span class="keyword">class</span> Product:
+  <span class="keyword">def</span> __init__(self,name,price,seller): <span class="comment">#題目要求屬性(here)</span>
+    self.<span class="variable">name</span>= name
+    self.<span class="variable">price</span>= price
+    self.<span class="variable">seller</span>= seller
+    self.<span class="variable">is_sold</span>= <span class="keyword">False</span> 
+    <span class="comment">#要預設false所以上面不用(here)</span>
+    <span class="comment">#沒意義，然後也是看他mouse = Product(<span class="string">"羅技滑鼠"</span>, 300, <span class="string">"小明"</span>)</span>
+  
+  <span class="keyword">def</span> show_info(self):
+        <span class="variable">status</span>= <span class="string">"已售出"</span> <span class="keyword">if</span> self.is_sold <span class="keyword">else</span> <span class="string">"販售中"</span> <span class="comment">#A if 條件 else B</span>
+        <span class="function">print</span>(<span class="string">f"商品：{self.name} | 價格：{self.price}元 | 賣家：{self.seller} | 狀態：{status}"</span>)
+
+  <span class="keyword">def</span> mark_as_sold(self):
+    self.<span class="variable">is_sold</span>= <span class="keyword">True</span>
+    
+    
+<span class="keyword">class</span> User:
+  <span class="keyword">def</span> __init__(self,username):
+    self.<span class="variable">username</span>= username
+    self.<span class="variable">my_products</span>= []  <span class="comment">#設list</span>
+    
+  <span class="keyword">def</span> add_product(self,product):
+    self.my_products.<span class="function">append</span>(product)
+    
+  <span class="keyword">def</span> buy_product(self,product):
+    product.mark_as_sold() 
+    <span class="comment">#因為book = Product(<span class="string">"微積分課本"</span>, 200, <span class="string">"小明"</span>)，所以book被設為一個 Product 物件</span>
+    <span class="comment">#然後Python 會找到 book 所屬的類別(Product)，找到裡面的mark_as_sold</span>
+    
+    <span class="function">print</span>(<span class="string">"購買成功！"</span>)
+    
+  <span class="keyword">def</span> show_my_products(self):
+    <span class="keyword">for</span> 商品 <span class="keyword">in</span> self.my_products:
+      商品.show_info()
+      <span class="comment">#跟上面依樣 商品 是一個 Product 物件，可以直接呼叫</span>
+      
+      
+      
+<span class="comment"># 建立使用者</span>
+<span class="variable">student1</span>= User(<span class="string">"小明"</span>)
+<span class="variable">student2</span>= User(<span class="string">"小華"</span>)
+
+<span class="comment"># 小明刊登商品</span>
+<span class="variable">book</span>= Product(<span class="string">"微積分課本"</span>, <span class="number">200</span>, <span class="string">"小明"</span>)
+<span class="variable">mouse</span>= Product(<span class="string">"羅技滑鼠"</span>, <span class="number">300</span>, <span class="string">"小明"</span>)
+student1.add_product(book)
+student1.add_product(mouse)
+
+<span class="comment"># 顯示小明的商品</span>
+<span class="function">print</span>(<span class="string">"=== 小明的商品 ==="</span>)
+student1.show_my_products()
+
+<span class="comment"># 小華購買商品</span>
+<span class="function">print</span>(<span class="string">"\n=== 小華購買微積分課本 ==="</span>)
+student2.buy_product(book)
+
+<span class="comment"># 查看商品狀態</span>
+<span class="function">print</span>(<span class="string">"\n=== 商品狀態 ==="</span>)
+book.show_info()</pre>
+      </div>
+    </div>
+
+    <div>
+      <button class="btn btn-copy" id="copyBtn">複製程式碼</button>
+      <button class="btn btn-download" id="downloadBtn">下載 .py 檔</button>
+    </div>
+
+    <p class="note">
+      應該每個人寫出來都幾乎一樣<br>
+      蔡沁梅生日快樂！
+    </p>
+  </div>
+
+  <!-- 留言區 -->
+  <h2>留言區</h2>
+  <div class="container-narrow">
+    <div id="comm"></div>
+  </div>
+
+  <script>
+    const codeBlock = document.getElementById('codeBlock');
+    const lineNumbers = document.getElementById('lineNumbers');
+    const copyBtn = document.getElementById('copyBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    // 自動產生行號
+    const codeLines = codeBlock.textContent.trim().split("\n").length;
+    let linesHtml = "";
+    for (let i = 1; i <= codeLines; i++) {
+      linesHtml += i + "<br>";
+    }
+    lineNumbers.innerHTML = linesHtml;
+
+    // 複製功能 (使用下載程式碼)
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(downloadCode);
+        copyBtn.textContent = '已複製 ✓';
+        setTimeout(()=> copyBtn.textContent = '複製程式碼', 1400);
+      } catch (err) {
+        alert('瀏覽器不支援自動複製,請手動選取並複製。');
+      }
+    });
+
+    // 下載功能 (使用預設的下載程式碼)
+    const downloadCode = `class Product:
+  def __init__(self,name,price,seller): 
+    self.name = name
+    self.price = price
+    self.seller = seller
+    self.is_sold = False 
+    
+  
+  def show_info(self):
+        status = "已售出" if self.is_sold else "販售中" 
+        print(f"商品：{self.name} | 價格：{self.price}元 | 賣家：{self.seller} | 狀態：{status}")
+
+  def mark_as_sold(self):
+    self.is_sold = True
+    
+    
+class User:
+  def __init__(self,username):
+    self.username = username
+    self.my_products = []  
+    
+  def add_product(self,product):
+    self.my_products.append(product)
+    
+  def buy_product(self,product):
+    product.mark_as_sold() 
+    print("購買成功！")
+    
+  def show_my_products(self):
+    for 商品 in self.my_products:
+      商品.show_info()
+     
+      
+# 建立使用者
+student1 = User("小明")
+student2 = User("小華")
+
+# 小明刊登商品
+book = Product("微積分課本", 200, "小明")
+mouse = Product("羅技滑鼠", 300, "小明")
+student1.add_product(book)
+student1.add_product(mouse)
+
+# 顯示小明的商品
+print("=== 小明的商品 ===")
+student1.show_my_products()
+
+# 小華購買商品
+print("\\n=== 小華購買微積分課本 ===")
+student2.buy_product(book)
+
+# 查看商品狀態
+print("\\n=== 商品狀態 ===")
+book.show_info()`;
+    downloadBtn.addEventListener('click', () => {
+      const blob = new Blob([downloadCode], { type: 'text/plain' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'hw251017.py';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+      downloadBtn.textContent = '已下載 ✓';
+      setTimeout(()=> downloadBtn.textContent = '下載 .py 檔', 1400);
+    });
+  </script>
+
+  <!-- Giscus 留言系統 -->
+  <script src="https://giscus.app/client.js"
+          data-repo="craz1gre0/comments"
+          data-repo-id="R_kgDOP4IE4g"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOP4IE4s4Cv-PF"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-TW"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+</html>
