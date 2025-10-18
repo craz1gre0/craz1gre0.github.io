@@ -862,6 +862,89 @@
       { "start": "11:00", "end": "14:30" },
       { "start": "16:30", "end": "20:30" }
     ]
+  },
+  {
+    "id": 85,
+    "name": "小木屋鬆餅",
+    "area": "斗六",
+    "price": "$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.2422735669034!2d120.53882179999998!3d23.7030408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec91777ab199d%3A0x5cbc7c37d88d08c6!2z5bCP5pyo5bGL6ayG6aSFIOmbsuael-aWl-WFreW6lw!5e0!3m2!1szh-TW!2stw!4v1760812577268!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "10:00", "end": "22:00" }
+    ]
+  },
+  {
+    "id": 86,
+    "name": "誠石火鍋",
+    "area": "斗南",
+    "price": "$$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.9904447398103!2d120.47605739999999!3d23.676299699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346eb9c962cb4f0b%3A0x9798417f4ae874a4!2z6Kqg55-z54Gr6Y2L!5e0!3m2!1szh-TW!2stw!4v1760812671844!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "17:00", "end": "01:00" }
+    ]
+  },
+  {
+    "id": 87,
+    "name": "榕苑古蹟餐飲",
+    "area": "斗南",
+    "price": "$$$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.947458019916!2d120.4779251!3d23.6778369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346eb9cc7660b531%3A0x4a9dc5936977a593!2z5qaV6IuR5Y-k6Lmf6aSQ6aOy!5e0!3m2!1szh-TW!2stw!4v1760812741960!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "11:30", "end": "21:30" }
+    ]
+  },
+  {
+    "id": 88,
+    "name": "林麵舖",
+    "area": "斗六",
+    "price": "$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.3035536241396!2d120.53513170000001!3d23.7008516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec818e811d445%3A0x3e277729535b778b!2z5p6X6bq16IiWIOS5vuaLjOm6tQ!5e0!3m2!1szh-TW!2stw!4v1760812831718!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "11:00", "end": "14:00" },
+      { "start": "17:00", "end": "20:00" }
+    ]
+  },
+  {
+    "id": 89,
+    "name": "公子說斗六最好吃的咖哩",
+    "area": "斗六",
+    "price": "$$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.17323614061!2d120.5454324!3d23.705506900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec83ea8e17347%3A0x441a21e1c994e02!2z5ouN5ouN6IGa5qiC6YOoIHwg5pel5byP5q2Q6aKo5ZKW5ZOp!5e0!3m2!1szh-TW!2stw!4v1760812946173!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "17:30", "end": "20:30" }
+    ]
+  },
+  {
+    "id": 90,
+    "name": "鴨勝軒",
+    "area": "斗六",
+    "price": "$$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.2400145116526!2d120.5366201!3d23.703121499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec92f3857f9bd%3A0xb17328436d75f35b!2z6bSo5Yud6LuSLeWwh-Wxi-aLiem6teWbm-W6ly_lupfkvJHoq4vpl5zms6jmiJHlgJHoh4nmm7hJRyBodHRwczovL3d3dy5pbnN0YWdyYW0uY29tL2R1Y2tfc2hvdV9yYW1lbj9pZ3NoPU1XOW5hRFZ5YW05aE9HSTBhZyUzRCUzRCZ1dG1fc291cmNlPXFy!5e0!3m2!1szh-TW!2stw!4v1760813046919!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "11:30", "end": "14:00" },
+      { "start": "17:00", "end": "21:00" }
+    ]
+  },
+  {
+    "id": 91,
+    "name": "翠秋",
+    "area": "虎尾",
+    "price": "$$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.2116119421585!2d120.43004039999998!3d23.7041361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ebb9d17277797%3A0x25224f36867e6586!2z57-g56eLQ1VFSUNJT1U!5e0!3m2!1szh-TW!2stw!4v1760813124128!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "11:00", "end": "14:00" },
+      { "start": "17:30", "end": "22:00" }
+    ]
+  },
+  {
+    "id": 92,
+    "name": "叮叮車(4人內用)",
+    "area": "斗六",
+    "price": "$$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.0580429884963!2d120.54377579999998!3d23.709621199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec9f675e5a477%3A0xf9fe522a6b11c762!2z5Y-u5Y-u6LuK5riv5byP5pep5Y2I6aSQ44CQ5YWn55So5YOF5pS2NOS6uuS7peS4iyjlkKvlm5vkurop5Y-KMTLmrbLku6XkuIrnmoTlrbjnlJ_jgJE!5e0!3m2!1szh-TW!2stw!4v1760813226405!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "10:30", "end": "15:00" }
+    ]
   }
   
   
