@@ -1230,6 +1230,57 @@
       { "start": "11:00", "end": "14:00" },
       { "start": "17:00", "end": "21:00" }
     ]
+  },
+  {
+    "id": 120,
+    "name": "墨竹亭",
+    "area": "斗六",
+    "price": "$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d935181.0483250496!2d120.4327137!3d23.7098738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346eb166fc1a8435%3A0x9b38c3f3cb7cf042!2z5aKo56u55LqtIOeHg-m6teacrOWutiDpm7LmnpfomY7lsL7lupc!5e0!3m2!1szh-TW!2stw!4v1760889875825!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "11:00", "end": "20:00" }
+    ]
+  },
+  {
+    "id": 121,
+    "name": "圓環當歸鴨",
+    "area": "斗南",
+    "price": "$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.998859484497!2d120.47661337698219!3d23.675998778721176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346eb9cb7c32a6b9%3A0xf9794468d55ab74!2z5ZyT55Kw55W25q246bSo!5e0!3m2!1szh-TW!2stw!4v1760890732679!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "07:00", "end": "18:00" }
+    ]
+  },
+  {
+    "id": 122,
+    "name": "斗南蒜頭麵",
+    "area": "斗南",
+    "price": "$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.9919945078846!2d120.47824267698245!3d23.67624427872104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346eb9cb6fe0bea5%3A0x9d172008adc0f396!2z5paX5Y2X6JKc6aCt6bq1!5e0!3m2!1szh-TW!2stw!4v1760890806897!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "06:00", "end": "13:30" }
+    ]
+  },
+  {
+    "id": 123,
+    "name": "斗南徐記肉圓",
+    "area": "斗南",
+    "price": "$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.1383753500577!2d120.4742014!3d23.671008999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346eb9b65ea716a7%3A0xb801faae508bac3!2z5paX5Y2X5b6Q6KiY6IKJ5ZyT!5e0!3m2!1szh-TW!2stw!4v1760890880913!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "10:30", "end": "19:00" }
+    ]
+  },
+  {
+    "id": 124,
+    "name": "斗南米糕甲",
+    "area": "斗南",
+    "price": "$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116932.4475219578!2d120.39437642765594!3d23.670987191533296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346eb9cb783bd75f%3A0xd0ef4c3909a85820!2z5paX5Y2X57Gz57OV55Sy77yI54Sh5Zu65a6a5YWs5LyR77yJ!5e0!3m2!1szh-TW!2stw!4v1760891030399!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "10:00", "end": "14:30" },
+      { "start": "15:30", "end": "19:30" }
+    ]
   }
   
   
