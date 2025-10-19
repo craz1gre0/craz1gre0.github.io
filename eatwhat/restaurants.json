@@ -945,6 +945,123 @@
     ,"businessHours": [
       { "start": "10:30", "end": "15:00" }
     ]
+  },
+  {
+    "id": 93,
+    "name": "彭家飯湯",
+    "area": "斗南",
+    "price": "$$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.5429997030133!2d120.4775735769979!3d23.692295678710185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346eb9277d6d7085%3A0x479d50fc89c7c17f!2z5b2t5a626aOv5rmv!5e0!3m2!1szh-TW!2stw!4v1760869716141!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "11:00", "end": "20:00" }
+    ]
+  },
+  {
+    "id": 94,
+    "name": "餵飽輕食",
+    "area": "斗六",
+    "price": "$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.9800045934608!2d120.53202437699824!3d23.712408078696384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec9002ce15fc9%3A0xe4a7ccc3f003c123!2z6aS16aO96LyV6aOf!5e0!3m2!1szh-TW!2stw!4v1760869801891!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "17:30", "end": "01:00" }
+    ]
+  },
+  {
+    "id": 95,
+    "name": "名爐炭烤東和香腸",
+    "area": "古坑",
+    "price": "$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.717879743976!2d120.5669102!3d23.686045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec864ac52007b%3A0xccfa038844d823ff!2z5ZCN54iQ54Kt54Ok5p2x5ZKM6aaZ6IW4!5e0!3m2!1szh-TW!2stw!4v1760869915030!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "14:00", "end": "19:00" }
+    ]
+  },
+  {
+    "id": 96,
+    "name": "魔力牛牛排館",
+    "area": "虎尾",
+    "price": "$$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.064601277981!2d120.43635807699826!3d23.70938697869845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346eb7536cbd8c4d%3A0x6809f505fc31c7ac!2z6a2U5Yqb54mb54mb5o6S6aSoIOiZjuWwvuW6lyDkuLvmiZPpm5nmi7zvvIjmiYvmiZPng4_pvo3purXjgIHmtrzpurXjgIHlkpblk6nniZvnrYvnhKHpmZDph4_kvpvmh4nvvInmg5_mnInloIXmjIHmiY3mnInnvo7lkbM!5e0!3m2!1szh-TW!2stw!4v1760869994552!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "11:00", "end": "14:00" },
+      { "start": "16:30", "end": "21:00" }
+    ]
+  },
+  {
+    "id": 97,
+    "name": "七股·鮮",
+    "area": "林內",
+    "price": "$$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d467410.00469428755!2d120.61214989999998!3d23.7601902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ecb200209ef95%3A0xa71f309657da241c!2z5LiD6IKhwrfprq7jgILmu7fogonpo6_ombHnm67prZrmlpnnkIblsIjos6PvvIjmnpflhaflupfvvIk!5e0!3m2!1szh-TW!2stw!4v1760870131468!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "11:00", "end": "14:00" },
+      { "start": "16:30", "end": "21:00" }
+    ]
+  },
+  {
+    "id": 98,
+    "name": "六六大順牛肉麵",
+    "area": "斗六",
+    "price": "$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.08670094559!2d120.54475490000002!3d23.7085977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec83bd3fdaa77%3A0xc580bf0c9384847b!2z5YWt5YWt5aSn6aCG54mb6IKJ6bq1!5e0!3m2!1szh-TW!2stw!4v1760870239169!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "10:00", "end": "14:00" },
+      { "start": "16:00", "end": "20:10" }
+    ]
+  },
+  {
+    "id": 99,
+    "name": "菁松牛肉麵",
+    "area": "斗南",
+    "price": "$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.9219253702695!2d120.47369409999999!3d23.6787499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346eb987ba371679%3A0xaebdd09e5f373600!2z6I-B5p2-54mb6IKJ6bq1!5e0!3m2!1szh-TW!2stw!4v1760870339622!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "10:30", "end": "14:00" },
+      { "start": "16:00", "end": "20:00" }
+    ]
+  },
+  {
+    "id": 100,
+    "name": "ㄚ瑤食堂",
+    "area": "斗六",
+    "price": "$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.5400750609388!2d120.5308351!3d23.6924002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec802d87f8939%3A0x1601b49ebd8e2b45!2z44Sa55Gk6aOf5aCC!5e0!3m2!1szh-TW!2stw!4v1760870817286!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "11:00", "end": "20:00" }
+    ]
+  },
+  {
+    "id": 101,
+    "name": "肉嘞(ㄌㄜˋ)",
+    "area": "斗六",
+    "price": "$$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.528297606662!2d120.53264949999999!3d23.6928211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec965ee5fce1b%3A0x19b928ad1308cfcf!2z6IKJ5Zie5paX5YWt5bqX!5e0!3m2!1szh-TW!2stw!4v1760871029436!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "11:00", "end": "14:00" },
+      { "start": "16:00", "end": "20:00" }
+    ]
+  },
+  {
+    "id": 102,
+    "name": "韓楓館",
+    "area": "斗六",
+    "price": "$$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.2384922709653!2d120.54043307698295!3d23.703175878702588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec9dc50ae4467%3A0xe639203dca88d015!2z6Z-T5qWT6aSoIC0g5paX5YWt5bqX!5e0!3m2!1szh-TW!2stw!4v1760871069821!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "11:00", "end": "14:00" },
+      { "start": "17:00", "end": "21:00" }
+    ]
+  },
+  {
+    "id": 103,
+    "name": "老街碗粿",
+    "area": "斗六",
+    "price": "$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.099516149209!2d120.5415797!3d23.70814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec83b6d4d6d65%3A0x84946171efc71597!2z6ICB6KGX56KX57K_!5e0!3m2!1szh-TW!2stw!4v1760871173425!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "10:30", "end": "14:15" },
+      { "start": "16:30", "end": "19:15" }
+    ]
   }
   
   
