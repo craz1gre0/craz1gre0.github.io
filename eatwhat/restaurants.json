@@ -1281,7 +1281,19 @@
       { "start": "10:00", "end": "14:30" },
       { "start": "15:30", "end": "19:30" }
     ]
+  },
+  {
+    "id": 125,
+    "name": "鍋道一號",
+    "area": "斗南",
+    "price": "$$$",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.92661528139!2d120.48315900000001!3d23.678582199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346eb9159b58e979%3A0x94b15f55020a4043!2z6Y2L6YGT5LiA6JmfIOaWl-WNl-aXl-iJpuW6lw!5e0!3m2!1szh-TW!2stw!4v1760891916577!5m2!1szh-TW!2stw"
+    ,"businessHours": [
+      { "start": "11:00", "end": "14:00" },
+      { "start": "17:00", "end": "21:30" }
+    ]
   }
+  
   
   
 ]
