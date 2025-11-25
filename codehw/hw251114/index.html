@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="author" content="craz1gre0">
+  <meta name="description" content="Week 10 Homework: 日記本">
+  <title>HW251114</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans CJK TC", "Helvetica Neue", Arial;
+      padding: 24px;
+      background:#f6f8fb;
+      color:#0b1220;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(15,20,30,0.08);
+      padding: 18px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .btn { display:inline-block; margin:8px 6px 0 0; padding:8px 12px; border-radius:6px; border:none; cursor:pointer; font-weight:600; }
+    .btn-copy { background:#2563eb; color:#fff; }
+    .btn-download { background:#10b981; color:#fff; }
+    .note { margin-top:10px; color:#334155; font-size:14px; }
+    
+    /* 標題區域 */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .header h2 { margin: 0; }
+    
+    .back-btn {
+      display: inline-block;
+      background: #6366f1;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(99,102,241,0.3);
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      background: #4f46e5;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(99,102,241,0.4);
+    }
+    
+    /* Code Window */
+    .code-window {
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 20px 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      font-family: "Fira Code", Consolas, monospace;
+    }
+    .code-header {
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 6px 12px;
+      font-weight: bold;
+      font-size: 13px;
+    }
+    .circle {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+    .red { background: #ff5f56; }
+    .yellow { background: #ffbd2e; }
+    .green { background: #27c93f; }
+    .code-body {
+      background: #2d2d2d;
+      color: #d4d4d4;
+      display: flex;
+    }
+    .line-numbers {
+      text-align: left;
+      padding: 0;
+      background: #2d2d2d;
+      color: #858585;
+      user-select: none;
+      width: auto;
+      min-width: unset;
+      font-size: 14px;
+      line-height: 1.5;
+      padding-left: 8px;
+      padding-right: 6px;
+    }
+    .code-content {
+      padding: 0;
+      padding-left: 8px;
+      overflow-x: auto;
+      white-space: pre;
+      flex: 1;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+    }
+    
+    /* Python 語法高亮 */
+    .keyword { color: #569cd6; } /* 關鍵字：藍色 */
+    .string { color: #ce9178; } /* 字串：橘色 */
+    .number { color: #b5cea8; } /* 數字：淡綠色 */
+    .comment { color: #6a9955; } /* 註解：綠色 */
+    .function { color: #dcdcaa; } /* 函數名：黃色 */
+    .operator { color: #d4d4d4; } /* 操作符：白色 */
+    .variable { color: #9cdcfe; } /* 變數：淡藍色 */
+    
+    /* 留言區樣式 */
+    .container-narrow {
+      max-width: 900px;
+      margin: 40px auto 0;
+      padding: 0 18px;
+    }
+    .container-narrow h2 {
+      color: #0b1220;
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    #comments {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(15,20,30,0.08);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h2>HW251114</h2>
+      <a href="https://codehw.craz1gre0.com" class="back-btn">← 目錄</a>
+    </div>
+
+    <!-- Code Window -->
+    <div class="code-window">
+      <div class="code-header">
+        <div class="circle red"></div>
+        <div class="circle yellow"></div>
+        <div class="circle green"></div>
+        <span style="margin-left:8px;">PYTHON</span>
+      </div>
+      <div class="code-body">
+        <div class="line-numbers" id="lineNumbers"></div>
+        <pre class="code-content" id="codeBlock"><span class="keyword">try</span>:
+    <span class="keyword">while</span> <span class="keyword">True</span>:
+        <span class="keyword">try</span>:
+            <span class="variable">檔名</span>= <span class="function">input</span>(<span class="string">'請輸入日記檔名:'</span>)
+            <span class="keyword">if</span> <span class="variable">檔名</span>== <span class="string">'quit'</span>:
+                <span class="keyword">break</span>
+            <span class="variable">檔名</span>= <span class="string">'./diaries/'</span> + 檔名
+            <span class="variable">f</span>= <span class="function">open</span>(檔名, <span class="string">'r'</span>, <span class="variable">encoding</span>=<span class="string">'utf-8'</span>)
+            <span class="variable">內容</span>= f.read()
+            f.close()
+            <span class="function">print</span>(<span class="string">'---日記開始---'</span>)
+            <span class="function">print</span>(內容)
+            <span class="function">print</span>(<span class="string">f'---日記結束---\n'</span>)
+            
+        <span class="keyword">except</span> FileNotFoundError:
+            <span class="function">print</span>(<span class="string">f'蛤你是不是打錯字，沒有這篇日記ㄟ\n'</span>)
+            
+        <span class="keyword">except</span> Exception:
+            <span class="function">print</span>(<span class="string">f'好像哪裡怪怪的\n'</span>)
+        
+<span class="keyword">finally</span>:
+        <span class="function">print</span>(<span class="string">'下次見~'</span>)
+        <span class="function">print</span>(<span class="string">'程式結束'</span>)</pre>
+      </div>
+    </div>
+
+    <div>
+      <button class="btn btn-copy" id="copyBtn">複製程式碼</button>
+      <button class="btn btn-download" id="downloadBtn">下載壓縮檔</button>
+    </div>
+
+    <p class="note">
+      我用一個資料夾diaries來放.txt<br>其實我不太確定是不是要用兩個try<br>但不這樣的話，不知道怎麼滿足他第5點要求
+    </p>
+  </div>
+
+  <!-- 留言區 -->
+  <h2>留言區</h2>
+  <div class="container-narrow">
+    <div id="comm"></div>
+  </div>
+
+  <script>
+    const codeBlock = document.getElementById('codeBlock');
+    const lineNumbers = document.getElementById('lineNumbers');
+    const copyBtn = document.getElementById('copyBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    // 自動產生行號
+    const codeLines = codeBlock.textContent.trim().split("\n").length;
+    let linesHtml = "";
+    for (let i = 1; i <= codeLines; i++) {
+      linesHtml += i + "<br>";
+    }
+    lineNumbers.innerHTML = linesHtml;
+
+    // 複製功能 (使用下載程式碼)
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(downloadCode);
+        copyBtn.textContent = '已複製 ✓';
+        setTimeout(()=> copyBtn.textContent = '複製程式碼', 1400);
+      } catch (err) {
+        alert('瀏覽器不支援自動複製,請手動選取並複製。');
+      }
+    });
+
+    // 下載功能 (使用預設的下載程式碼)
+    const downloadCode = `try:
+    while True:
+        try:
+            檔名 = input('請輸入日記檔名:')
+            if 檔名 == 'quit':
+                break
+            檔名 = './diaries/' + 檔名
+            f = open(檔名, 'r', encoding='utf-8')
+            內容 = f.read()
+            f.close()
+            print('---日記開始---')
+            print(內容)
+            print(f'---日記結束---\\n')
+            
+        except FileNotFoundError:
+            print(f'蛤你是不是打錯字，沒有這篇日記ㄟ\\n')
+            
+        except Exception:
+            print(f'好像哪裡怪怪的\\n')
+        
+finally:
+        print('下次見~')
+        print('程式結束')`;
+    downloadBtn.addEventListener('click', () => {
+      const a = document.createElement('a');
+      a.href = 'https://drive.usercontent.google.com/download?id=12DrEv0LCBB_ry67LANGTh5zVJ7qdQhYH&export=download&authuser=0&confirm=t&uuid=5ce03be7-4cb9-40c1-82f6-36945934d37c&at=ALWLOp6mhnnaCtdVKr4u48l3MuSY:1763397144063';
+      a.download = 'code.zip';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      downloadBtn.textContent = '已下載 ✓';
+      setTimeout(()=> downloadBtn.textContent = '下載壓縮檔', 1400);
+    });
+  </script>
+
+  <!-- Giscus 留言系統 -->
+  <script src="https://giscus.app/client.js"
+          data-repo="craz1gre0/comments"
+          data-repo-id="R_kgDOP4IE4g"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOP4IE4s4Cv-PF"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-TW"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+</html>

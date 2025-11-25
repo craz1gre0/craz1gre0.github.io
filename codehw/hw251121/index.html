@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="author" content="craz1gre0">
+  <meta name="description" content="Week 11 Homework: 咖啡廳銷售分析">
+  <title>HW251121</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans CJK TC", "Helvetica Neue", Arial;
+      padding: 24px;
+      background:#f6f8fb;
+      color:#0b1220;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(15,20,30,0.08);
+      padding: 18px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .btn { display:inline-block; margin:8px 6px 0 0; padding:8px 12px; border-radius:6px; border:none; cursor:pointer; font-weight:600; }
+    .btn-copy { background:#2563eb; color:#fff; }
+    .btn-download { background:#10b981; color:#fff; }
+    .note { margin-top:10px; color:#334155; font-size:14px; }
+    
+    /* 標題區域 */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .header h2 { margin: 0; }
+    
+    .back-btn {
+      display: inline-block;
+      background: #6366f1;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(99,102,241,0.3);
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      background: #4f46e5;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(99,102,241,0.4);
+    }
+    
+    /* Code Window */
+    .code-window {
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 20px 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      font-family: "Fira Code", Consolas, monospace;
+    }
+    .code-header {
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 6px 12px;
+      font-weight: bold;
+      font-size: 13px;
+    }
+    .circle {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+    .red { background: #ff5f56; }
+    .yellow { background: #ffbd2e; }
+    .green { background: #27c93f; }
+    .code-body {
+      background: #2d2d2d;
+      color: #d4d4d4;
+      display: flex;
+    }
+    .line-numbers {
+      text-align: left;
+      padding: 0;
+      background: #2d2d2d;
+      color: #858585;
+      user-select: none;
+      width: auto;
+      min-width: unset;
+      font-size: 14px;
+      line-height: 1.5;
+      padding-left: 8px;
+      padding-right: 6px;
+    }
+    .code-content {
+      padding: 0;
+      padding-left: 8px;
+      overflow-x: auto;
+      white-space: pre;
+      flex: 1;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+    }
+    
+    /* Python 語法高亮 */
+    .keyword { color: #569cd6; } /* 關鍵字：藍色 */
+    .string { color: #ce9178; } /* 字串：橘色 */
+    .number { color: #b5cea8; } /* 數字：淡綠色 */
+    .comment { color: #6a9955; } /* 註解：綠色 */
+    .function { color: #dcdcaa; } /* 函數名：黃色 */
+    .operator { color: #d4d4d4; } /* 操作符：白色 */
+    .variable { color: #9cdcfe; } /* 變數：淡藍色 */
+    
+    /* 留言區樣式 */
+    .container-narrow {
+      max-width: 900px;
+      margin: 40px auto 0;
+      padding: 0 18px;
+    }
+    .container-narrow h2 {
+      color: #0b1220;
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    #comments {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(15,20,30,0.08);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h2>HW251121</h2>
+      <a href="https://codehw.craz1gre0.com" class="back-btn">← 目錄</a>
+    </div>
+
+    <!-- Code Window -->
+    <div class="code-window">
+      <div class="code-header">
+        <div class="circle red"></div>
+        <div class="circle yellow"></div>
+        <div class="circle green"></div>
+        <span style="margin-left:8px;">PYTHON</span>
+      </div>
+      <div class="code-body">
+        <div class="line-numbers" id="lineNumbers"></div>
+        <pre class="code-content" id="codeBlock"><span class="keyword">import</span> csv <span class="comment">#引入csv模組來讀取csv檔案</span>
+
+<span class="variable">store</span>= {} <span class="comment">#放店名和銷售額 {<span class="comment">"分店A"</span>:5000, <span class="comment">"分店B"</span>:3000}</span>
+<span class="variable">drinks</span>= {} <span class="comment">#放飲品和銷售數量 {<span class="comment">"拿鐵"</span>:100, <span class="comment">"美式"</span>:80}</span>
+<span class="variable">max_order</span>= <span class="keyword">None</span> <span class="comment">#放最高消費訂單的資料</span>
+
+<span class="keyword">with</span> <span class="function">open</span>(<span class="string">'sales_data.csv'</span>, <span class="string">'r'</span>, <span class="variable">encoding</span>=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:  <span class="comment">#開啟csv檔案</span>
+    <span class="variable">reader</span>= csv.DictReader(f) <span class="comment">#去看csv模組語法</span>
+    
+    <span class="keyword">for</span> row <span class="keyword">in</span> reader: <span class="comment">#逐行讀取csv檔案</span>
+        <span class="variable">branch</span>= row[<span class="string">"分店"</span>]
+        <span class="variable">amount</span>= <span class="function">int</span>(row[<span class="string">"金額"</span>]) 
+
+        <span class="keyword">if</span> max_order <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">or</span> amount &gt; <span class="function">int</span>(max_order[<span class="string">"金額"</span>]): <span class="comment">#找出最高消費訂單</span>
+            <span class="variable">max_order</span>= row
+
+        <span class="variable">drink</span>= row[<span class="string">"飲品"</span>]
+        <span class="variable">count</span>= <span class="function">int</span>(row[<span class="string">"數量"</span>])
+
+        <span class="keyword">if</span> branch <span class="keyword">not</span> <span class="keyword">in</span> store: <span class="comment">#檢查分店是否在字典中，沒有就新增</span>
+            store[branch] = <span class="number">0</span>
+        <span class="keyword">if</span> branch <span class="keyword">in</span> store: <span class="comment">#已經有這個分店了，就加上金額</span>
+            store[branch] += amount
+
+        <span class="keyword">if</span> drink <span class="keyword">not</span> <span class="keyword">in</span> drinks: <span class="comment">#檢查飲品是否在字典中，沒有就新增</span>
+            drinks[drink] = <span class="number">0</span>
+        <span class="keyword">if</span> drink <span class="keyword">in</span> drinks: <span class="comment">#已經有這個飲品了，就加上數量</span>
+            drinks[drink] += count
+    
+<span class="function">print</span>(<span class="string">"="</span> * <span class="number">50</span>)
+<span class="function">print</span>(<span class="string">"咖啡店銷售分析報表"</span>.center(<span class="number">45</span>)) <span class="comment">#置中 <span class="comment">"咖啡店銷售分析報表"</span></span>
+<span class="function">print</span>(<span class="string">"="</span> * <span class="number">50</span>,<span class="string">'\n'</span>)
+
+<span class="function">print</span>(<span class="string">f"總營收：NT$ {sum(store.values()):,}"</span>,<span class="string">'\n'</span>) <span class="comment">#計算總營收用千分位顯示(:,)</span>
+
+<span class="variable">sorted_store</span>= <span class="function">sorted</span>(store, <span class="variable">key</span>=store.get, <span class="variable">reverse</span>=<span class="keyword">True</span>) <span class="comment">#排序</span>
+
+<span class="function">print</span>(<span class="string">"各分店業績："</span>)
+<span class="keyword">for</span> k <span class="keyword">in</span> sorted_store:
+    <span class="function">print</span>(<span class="string">f"  {k}：NT$ {store[k]:,}"</span>)
+
+<span class="variable">業績冠軍</span>= <span class="function">max</span>(store, <span class="variable">key</span>=store.get) <span class="comment">#找出業績最高的分店</span>
+<span class="function">print</span>(<span class="string">f"\n業績冠軍：{業績冠軍}"</span>,<span class="string">'\n'</span>)
+
+<span class="variable">sorted_drinks</span>= <span class="function">sorted</span>(drinks, <span class="variable">key</span>=drinks.get, <span class="variable">reverse</span>=<span class="keyword">True</span>) <span class="comment">#排序</span>
+
+<span class="function">print</span>(<span class="string">"飲品銷售數量："</span>)
+<span class="keyword">for</span> drink <span class="keyword">in</span> sorted_drinks:
+    <span class="function">print</span>(<span class="string">f"  {drink}：{drinks[drink]} 杯"</span>) 
+
+<span class="variable">最熱銷飲品</span>= <span class="function">max</span>(drinks, <span class="variable">key</span>=drinks.get) <span class="comment">#找出銷售數量最高的飲品</span>
+<span class="function">print</span>(<span class="string">f"\n最受歡迎飲品：{最熱銷飲品}"</span>,<span class="string">'\n'</span>)
+
+<span class="function">print</span>(<span class="string">"單筆最高消費訂單："</span>)
+<span class="function">print</span>(<span class="string">f"  訂單編號：{max_order['訂單編號']}"</span>)
+<span class="function">print</span>(<span class="string">f"  金額：{int(max_order['金額']):,}"</span>)
+<span class="function">print</span>(<span class="string">f"  飲品：{max_order['飲品']} x {(max_order['數量'])}"</span>,<span class="string">'\n'</span>)
+<span class="function">print</span>(<span class="string">"="</span> * <span class="number">50</span>)</pre>
+      </div>
+    </div>
+
+    <div>
+      <button class="btn btn-copy" id="copyBtn">複製程式碼</button>
+      <button class="btn btn-download" id="downloadBtn">下載壓縮檔</button>
+    </div>
+
+    <p class="note">
+      去看csv模組的語法<br>
+      <a href="https://blog.gtwang.org/programming/python-csv-file-reading-and-writing-tutorial/" target="_blank" rel="noopener noreferrer">https://blog.gtwang.org/programming/python-csv-file-reading-and-writing-tutorial/</a>
+    </p>
+  </div>
+
+  <!-- 留言區 -->
+  <h2>留言區</h2>
+  <div class="container-narrow">
+    <div id="comm"></div>
+  </div>
+
+  <script>
+    const codeBlock = document.getElementById('codeBlock');
+    const lineNumbers = document.getElementById('lineNumbers');
+    const copyBtn = document.getElementById('copyBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    // 自動產生行號
+    const codeLines = codeBlock.textContent.trim().split("\n").length;
+    let linesHtml = "";
+    for (let i = 1; i <= codeLines; i++) {
+      linesHtml += i + "<br>";
+    }
+    lineNumbers.innerHTML = linesHtml;
+
+    // 複製功能 (使用下載程式碼)
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(downloadCode);
+        copyBtn.textContent = '已複製 ✓';
+        setTimeout(()=> copyBtn.textContent = '複製程式碼', 1400);
+      } catch (err) {
+        alert('瀏覽器不支援自動複製,請手動選取並複製。');
+      }
+    });
+
+    // 下載功能 (使用預設的下載程式碼)
+    const downloadCode = `import csv #引入csv模組來讀取csv檔案
+
+store = {} #放店名和銷售額 {"分店A":5000, "分店B":3000}
+drinks = {} #放飲品和銷售數量 {"拿鐵":100, "美式":80}
+max_order = None #放最高消費訂單的資料
+
+with open('sales_data.csv', 'r', encoding='utf-8') as f:  #開啟csv檔案
+    reader = csv.DictReader(f) #去看csv模組語法
+    
+    for row in reader: #逐行讀取csv檔案
+        branch = row["分店"]
+        amount = int(row["金額"]) 
+
+        if max_order is None or amount > int(max_order["金額"]): #找出最高消費訂單
+            max_order = row
+
+        drink = row["飲品"]
+        count = int(row["數量"])
+
+        if branch not in store: #檢查分店是否在字典中，沒有就新增
+            store[branch] = 0
+        if branch in store: #已經有這個分店了，就加上金額
+            store[branch] += amount
+
+        if drink not in drinks: #檢查飲品是否在字典中，沒有就新增
+            drinks[drink] = 0
+        if drink in drinks: #已經有這個飲品了，就加上數量
+            drinks[drink] += count
+    
+print("=" * 50)
+print("咖啡店銷售分析報表".center(45)) #置中 "咖啡店銷售分析報表"
+print("=" * 50,'\\n')
+
+print(f"總營收：NT\$ {sum(store.values()):,}",'\\n') #計算總營收用千分位顯示(:,)
+
+sorted_store = sorted(store, key=store.get, reverse=True) #排序
+
+print("各分店業績：")
+for k in sorted_store:
+    print(f"  {k}：NT\$ {store[k]:,}")
+
+業績冠軍 = max(store, key=store.get) #找出業績最高的分店
+print(f"\\n業績冠軍：{業績冠軍}",'\\n')
+
+sorted_drinks = sorted(drinks, key=drinks.get, reverse=True) #排序
+
+print("飲品銷售數量：")
+for drink in sorted_drinks:
+    print(f"  {drink}：{drinks[drink]} 杯") 
+
+最熱銷飲品 = max(drinks, key=drinks.get) #找出銷售數量最高的飲品
+print(f"\\n最受歡迎飲品：{最熱銷飲品}",'\\n')
+
+print("單筆最高消費訂單：")
+print(f"  訂單編號：{max_order['訂單編號']}")
+print(f"  金額：{int(max_order['金額']):,}")
+print(f"  飲品：{max_order['飲品']} x {(max_order['數量'])}",'\\n')
+print("=" * 50)`;
+    downloadBtn.addEventListener('click', () => {
+      const a = document.createElement('a');
+      a.href = 'https://drive.usercontent.google.com/download?id=1DYv2Ih5UjSeeU2tgvBG5vmA9dFEKD-bF&export=download&authuser=0&confirm=t&uuid=d679b882-db79-4a36-ab58-5bf20e8e4b40&at=ALWLOp5w05b4vJU0w3p-jmuHNSLK:1764091510565';
+      a.download = 'code.zip';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      downloadBtn.textContent = '已下載 ✓';
+      setTimeout(()=> downloadBtn.textContent = '下載壓縮檔', 1400);
+    });
+  </script>
+
+  <!-- Giscus 留言系統 -->
+  <script src="https://giscus.app/client.js"
+          data-repo="craz1gre0/comments"
+          data-repo-id="R_kgDOP4IE4g"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOP4IE4s4Cv-PF"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-TW"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+</html>
