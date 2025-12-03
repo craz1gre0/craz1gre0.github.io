@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="author" content="craz1gre0">
+  <meta name="description" content="Week 12 HW: 抽籤工具">
+  <title>HW251128</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans CJK TC", "Helvetica Neue", Arial;
+      padding: 24px;
+      background:#f6f8fb;
+      color:#0b1220;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(15,20,30,0.08);
+      padding: 18px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .btn { display:inline-block; margin:8px 6px 0 0; padding:8px 12px; border-radius:6px; border:none; cursor:pointer; font-weight:600; }
+    .btn-copy { background:#2563eb; color:#fff; }
+    .btn-download { background:#10b981; color:#fff; }
+    .note { margin-top:10px; color:#334155; font-size:14px; }
+    
+    /* 標題區域 */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .header h2 { margin: 0; }
+    
+    .back-btn {
+      display: inline-block;
+      background: #6366f1;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(99,102,241,0.3);
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      background: #4f46e5;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(99,102,241,0.4);
+    }
+    
+    /* Code Window */
+    .code-window {
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 20px 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      font-family: "Fira Code", Consolas, monospace;
+    }
+    .code-header {
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 6px 12px;
+      font-weight: bold;
+      font-size: 13px;
+    }
+    .circle {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+    .red { background: #ff5f56; }
+    .yellow { background: #ffbd2e; }
+    .green { background: #27c93f; }
+    .code-body {
+      background: #2d2d2d;
+      color: #d4d4d4;
+      display: flex;
+    }
+    .line-numbers {
+      text-align: left;
+      padding: 0;
+      background: #2d2d2d;
+      color: #858585;
+      user-select: none;
+      width: auto;
+      min-width: unset;
+      font-size: 14px;
+      line-height: 1.5;
+      padding-left: 8px;
+      padding-right: 6px;
+    }
+    .code-content {
+      padding: 0;
+      padding-left: 8px;
+      overflow-x: auto;
+      white-space: pre;
+      flex: 1;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+    }
+    
+    /* Python 語法高亮 */
+    .keyword { color: #569cd6; } /* 關鍵字：藍色 */
+    .string { color: #ce9178; } /* 字串：橘色 */
+    .number { color: #b5cea8; } /* 數字：淡綠色 */
+    .comment { color: #6a9955; } /* 註解：綠色 */
+    .function { color: #dcdcaa; } /* 函數名：黃色 */
+    .operator { color: #d4d4d4; } /* 操作符：白色 */
+    .variable { color: #9cdcfe; } /* 變數：淡藍色 */
+    
+    /* 留言區樣式 */
+    .container-narrow {
+      max-width: 900px;
+      margin: 40px auto 0;
+      padding: 0 18px;
+    }
+    .container-narrow h2 {
+      color: #0b1220;
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    #comments {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(15,20,30,0.08);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h2>HW251128</h2>
+      <a href="https://codehw.craz1gre0.com" class="back-btn">← 目錄</a>
+    </div>
+
+    <!-- Code Window -->
+    <div class="code-window">
+      <div class="code-header">
+        <div class="circle red"></div>
+        <div class="circle yellow"></div>
+        <div class="circle green"></div>
+        <span style="margin-left:8px;">PYTHON</span>
+      </div>
+      <div class="code-body">
+        <div class="line-numbers" id="lineNumbers"></div>
+        <pre class="code-content" id="codeBlock"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk
+<span class="keyword">import</span> csv
+<span class="keyword">import</span> random
+
+<span class="variable">root</span>= tk.Tk()
+root.title(<span class="string">"抽籤小工具"</span>) <span class="comment"># 視窗標題</span>
+root.geometry(<span class="string">"550x350"</span>) <span class="comment"># 視窗大小</span>
+root.resizable(<span class="keyword">False</span>, <span class="keyword">False</span>) <span class="comment"># 固定視窗大小</span>
+root.configure(<span class="variable">bg</span>=<span class="string">"#1e1e2f"</span>)  <span class="comment"># 深色背景</span>
+
+<span class="variable">participants</span>= []
+<span class="keyword">try</span>: <span class="comment"># 讀取csv檔案</span>
+    <span class="keyword">with</span> <span class="function">open</span>(<span class="string">"studets.csv"</span>, <span class="string">"r"</span>, <span class="variable">encoding</span>=<span class="string">"utf-8"</span>) <span class="keyword">as</span> f:
+        <span class="variable">reader</span>= csv.DictReader(f)
+        <span class="keyword">for</span> row <span class="keyword">in</span> reader:
+            <span class="variable">student</span>= row[<span class="string">"姓名"</span>].strip()
+            <span class="keyword">if</span> student:
+                participants.<span class="function">append</span>(student)
+<span class="keyword">except</span>:
+    <span class="variable">participants</span>= [<span class="string">"名單讀取錯誤"</span>]
+
+<span class="variable">rolling</span>= <span class="keyword">False</span>  <span class="comment"># 是否正在抽籤</span>
+
+<span class="variable">title_label</span>= tk.Label( <span class="comment"># 標題</span>
+    root,
+    <span class="variable">text</span>=<span class="string">"抽籤小工具"</span>,
+    <span class="variable">font</span>=(<span class="string">"Arial"</span>, <span class="number">24</span>, <span class="string">"bold"</span>),
+    <span class="variable">fg</span>=<span class="string">"#ffd700"</span>, <span class="comment"># 金色文字</span>
+    <span class="variable">bg</span>=<span class="string">"#1e1e2f"</span> <span class="comment"># 深色背景</span>
+)
+title_label.pack(<span class="variable">pady</span>=<span class="number">15</span>) <span class="comment"># 上下間距</span>
+
+<span class="variable">name_display</span>= tk.Label( <span class="comment"># 顯示抽中的名字</span>
+    root,
+    <span class="variable">text</span>=<span class="string">"按下「開始抽籤」"</span>,
+    <span class="variable">font</span>=(<span class="string">"Arial"</span>, <span class="number">32</span>, <span class="string">"bold"</span>),
+    <span class="variable">fg</span>=<span class="string">"#ffffff"</span>, <span class="comment"># 白色文字</span>
+    <span class="variable">bg</span>=<span class="string">"#2e2e3e"</span>, <span class="comment"># 深色背景</span>
+    <span class="variable">width</span>=<span class="number">15</span>,
+    <span class="variable">height</span>=<span class="number">2</span>,
+    <span class="variable">relief</span>=<span class="string">"ridge"</span>, <span class="comment"># 邊框樣式</span>
+    <span class="variable">bd</span>=<span class="number">4</span> <span class="comment"># 邊框寬度</span>
+)
+name_display.pack(<span class="variable">pady</span>=<span class="number">25</span>) <span class="comment"># 上下間距</span>
+
+<span class="keyword">def</span> start_lottery(): <span class="comment"># 開始抽籤</span>
+    <span class="keyword">global</span> rolling
+    <span class="keyword">if</span> rolling: <span class="comment"># 如果正在抽籤，就忽略點擊</span>
+        <span class="keyword">return</span>
+
+    <span class="variable">rolling</span>= <span class="keyword">True</span> <span class="comment"># 設定為正在抽籤</span>
+    start_btn.config(<span class="variable">state</span>=<span class="string">"disabled"</span>, <span class="variable">text</span>=<span class="string">"抽籤中..."</span>) <span class="comment"># 按鈕變為不可點擊，顯示抽籤中...</span>
+    animate_names(<span class="number">0</span>) <span class="comment"># 開始動畫</span>
+
+<span class="keyword">def</span> animate_names(step): <span class="comment"># 抽籤動畫</span>
+    <span class="keyword">global</span> rolling
+    <span class="keyword">if</span> step &lt; <span class="number">25</span>:  <span class="comment"># 抽籤動畫持續25次</span>
+        name_display.config(<span class="variable">text</span>=random.choice(participants)) <span class="comment"># 顯示隨機名字</span>
+        root.after(<span class="number">70</span>, <span class="keyword">lambda</span>: animate_names(step + <span class="number">1</span>)) <span class="comment"># 70毫秒後繼續下一次動畫</span>
+    <span class="keyword">else</span>:
+        
+        <span class="variable">available</span>= [n <span class="keyword">for</span> n <span class="keyword">in</span> participants <span class="keyword">if</span> n != <span class="string">"郭冠廷"</span>] <span class="comment"># 避免抽到帥哥</span>
+        <span class="keyword">if</span> <span class="keyword">not</span> available:
+            <span class="variable">available</span>= participants <span class="comment"># 如果名單中只有帥哥，就只能抽他</span>
+
+        <span class="variable">final_name</span>= random.choice(available) <span class="comment"># 最終抽中的名字</span>
+        name_display.config(<span class="variable">text</span>=final_name) <span class="comment"># 顯示最終名字</span>
+        start_btn.config(<span class="variable">state</span>=<span class="string">"normal"</span>, <span class="variable">text</span>=<span class="string">"開始抽籤"</span>) <span class="comment"># 按鈕恢復可點擊，顯示開始抽籤</span>
+        <span class="variable">rolling</span>= <span class="keyword">False</span> <span class="comment"># 抽籤結束</span>
+
+<span class="variable">start_btn</span>= tk.Button( <span class="comment"># 開始抽籤按鈕</span>
+    root,
+    <span class="variable">text</span>=<span class="string">"開始抽籤"</span>,
+    <span class="variable">font</span>=(<span class="string">"Arial"</span>, <span class="number">18</span>, <span class="string">"bold"</span>),
+    <span class="variable">bg</span>=<span class="string">"#4caf50"</span>, <span class="comment"># 按鈕背景色</span>
+    <span class="variable">fg</span>=<span class="string">"#ffffff"</span>, <span class="comment"># 文字顏色</span>
+    <span class="variable">activebackground</span>=<span class="string">"#45a049"</span>, <span class="comment"># 按鈕按下時背景色</span>
+    <span class="variable">activeforeground</span>=<span class="string">"#ffffff"</span>, <span class="comment"># 按鈕按下時文字顏色</span>
+    <span class="variable">relief</span>=<span class="string">"raised"</span>, <span class="comment"># 按鈕邊框樣式</span>
+    <span class="variable">bd</span>=<span class="number">3</span>, <span class="comment"># 按鈕邊框寬度</span>
+    <span class="variable">command</span>=start_lottery <span class="comment"># 點擊按鈕時執行的函式</span>
+)
+start_btn.pack(<span class="variable">pady</span>=<span class="number">15</span>) <span class="comment"># 上下間距</span>
+
+root.mainloop()</pre>
+      </div>
+    </div>
+
+    <div>
+      <button class="btn btn-copy" id="copyBtn">複製程式碼</button>
+      <button class="btn btn-download" id="downloadBtn">下載 .py 檔</button>
+    </div>
+
+    <p class="note">
+      動畫要想一下怎麼做比較好而已
+    </p>
+  </div>
+
+  <!-- 留言區 -->
+  <h2>留言區</h2>
+  <div class="container-narrow">
+    <div id="comm"></div>
+  </div>
+
+  <script>
+    const codeBlock = document.getElementById('codeBlock');
+    const lineNumbers = document.getElementById('lineNumbers');
+    const copyBtn = document.getElementById('copyBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    // 自動產生行號
+    const codeLines = codeBlock.textContent.trim().split("\n").length;
+    let linesHtml = "";
+    for (let i = 1; i <= codeLines; i++) {
+      linesHtml += i + "<br>";
+    }
+    lineNumbers.innerHTML = linesHtml;
+
+    // 複製功能 (使用下載程式碼)
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(downloadCode);
+        copyBtn.textContent = '已複製 ✓';
+        setTimeout(()=> copyBtn.textContent = '複製程式碼', 1400);
+      } catch (err) {
+        alert('瀏覽器不支援自動複製,請手動選取並複製。');
+      }
+    });
+
+    // 下載功能 (使用預設的下載程式碼)
+    const downloadCode = `import tkinter as tk
+import csv
+import random
+
+root = tk.Tk()
+root.title("抽籤小工具") # 視窗標題
+root.geometry("550x350") # 視窗大小
+root.resizable(False, False) # 固定視窗大小
+root.configure(bg="#1e1e2f")  # 深色背景
+
+participants = []
+try: # 讀取csv檔案
+    with open("studets.csv", "r", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            student = row["姓名"].strip()
+            if student:
+                participants.append(student)
+except:
+    participants = ["名單讀取錯誤"]
+
+rolling = False  # 是否正在抽籤
+
+title_label = tk.Label( # 標題
+    root,
+    text="抽籤小工具",
+    font=("Arial", 24, "bold"),
+    fg="#ffd700", # 金色文字
+    bg="#1e1e2f" # 深色背景
+)
+title_label.pack(pady=15) # 上下間距
+
+name_display = tk.Label( # 顯示抽中的名字
+    root,
+    text="按下「開始抽籤」",
+    font=("Arial", 32, "bold"),
+    fg="#ffffff", # 白色文字
+    bg="#2e2e3e", # 深色背景
+    width=15,
+    height=2,
+    relief="ridge", # 邊框樣式
+    bd=4 # 邊框寬度
+)
+name_display.pack(pady=25) # 上下間距
+
+def start_lottery(): # 開始抽籤
+    global rolling
+    if rolling: # 如果正在抽籤，就忽略點擊
+        return
+
+    rolling = True # 設定為正在抽籤
+    start_btn.config(state="disabled", text="抽籤中...") # 按鈕變為不可點擊，顯示抽籤中...
+    animate_names(0) # 開始動畫
+
+def animate_names(step): # 抽籤動畫
+    global rolling
+    if step < 25:  # 抽籤動畫持續25次
+        name_display.config(text=random.choice(participants)) # 顯示隨機名字
+        root.after(70, lambda: animate_names(step + 1)) # 70毫秒後繼續下一次動畫
+    else:
+        
+        available = [n for n in participants if n != "郭冠廷"] # 避免抽到帥哥
+        if not available:
+            available = participants # 如果名單中只有帥哥，就只能抽他
+
+        final_name = random.choice(available) # 最終抽中的名字
+        name_display.config(text=final_name) # 顯示最終名字
+        start_btn.config(state="normal", text="開始抽籤") # 按鈕恢復可點擊，顯示開始抽籤
+        rolling = False # 抽籤結束
+
+start_btn = tk.Button( # 開始抽籤按鈕
+    root,
+    text="開始抽籤",
+    font=("Arial", 18, "bold"),
+    bg="#4caf50", # 按鈕背景色
+    fg="#ffffff", # 文字顏色
+    activebackground="#45a049", # 按鈕按下時背景色
+    activeforeground="#ffffff", # 按鈕按下時文字顏色
+    relief="raised", # 按鈕邊框樣式
+    bd=3, # 按鈕邊框寬度
+    command=start_lottery # 點擊按鈕時執行的函式
+)
+start_btn.pack(pady=15) # 上下間距
+
+root.mainloop()`;
+    downloadBtn.addEventListener('click', () => {
+      const a = document.createElement('a');
+      a.href = 'https://drive.usercontent.google.com/download?id=1DYv2Ih5UjSeeU2tgvBG5vmA9dFEKD-bF&export=download&authuser=0&confirm=t&uuid=d679b882-db79-4a36-ab58-5bf20e8e4b40&at=ALWLOp5w05b4vJU0w3p-jmuHNSLK:1764091510565';
+      a.download = 'code.zip';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      downloadBtn.textContent = '已下載 ✓';
+      setTimeout(()=> downloadBtn.textContent = '下載壓縮檔', 1400);
+    });
+  </script>
+
+  <!-- Giscus 留言系統 -->
+  <script src="https://giscus.app/client.js"
+          data-repo="craz1gre0/comments"
+          data-repo-id="R_kgDOP4IE4g"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOP4IE4s4Cv-PF"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-TW"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+</html>
